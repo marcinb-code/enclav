@@ -36,4 +36,16 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/private-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/private-ai"/>
   </url>
+  <url>
+    <loc>https://enclav.cc/pl/packly</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/packly"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/en/packly</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/packly"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly"/>
+  </url>
 </urlset>

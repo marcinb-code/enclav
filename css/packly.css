@@ -1,0 +1,77 @@
+/* ENCLAV — PACKLY product subpage (dodatkowa podstrona opisowa, beta early 2027).
+   Wariant w ramach zaakceptowanego kierunku canvas-bg; tokeny i layout z enclav.css,
+   sekcje produktowe stylizowane w tym pliku. */
+
+/* Hero: nadtytuł działu. */
+.direction--packly .hero__eyebrow {
+  display: block;
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+/* Hero: status projektu / wersja beta planowana na early 2027. */
+.direction--packly .hero__status {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Hero: podstawowy tekst supportu — lead (p:first-child) bold emerald, reszta muted. */
+.direction--packly .hero__support > div > p {
+  color: var(--muted);
+  font-weight: 400;
+}
+.direction--packly .hero__support > div > p:first-child {
+  color: #34d399;
+  font-weight: 700;
+}
+
+/* Hero: etykiety etapu. */
+.direction--packly .hero__labels {
+  margin: 1.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Wzorzec sekcji z nagłówkiem i treścią (prose-only). */
+.direction--packly .packly-prose .section-heading { max-width: 20ch; }
+
+/* Sekcja: jak przetwarza się geometrię — nagłówek z dłuższym zdaniem. */
+.direction--packly .packly-dataflow .section-heading { max-width: 22ch; }
+
+/* Lista punktowana. */
+.direction--packly .packly-list { margin: 0 0 1.25rem; padding: 0 0 0 1.25rem; list-style: disc; }
+.direction--packly .packly-list li { margin: 0.35rem 0; color: var(--ink); }
+.direction--packly .packly-list li::marker { color: var(--accent); }
+
+/* Sekcja: jak Packly działa — kolejność etapów 01–06. */
+.direction--packly .packly-flow { margin: 0; padding: 0; list-style: none; }
+.direction--packly .packly-flow li { padding: 1.35rem 0 1.55rem; }
+.direction--packly .packly-flow li:first-child { padding-top: 0; }
+.direction--packly .packly-flow strong { display: block; margin-bottom: 0.15rem; }
+.direction--packly .packly-flow p { margin: 0; color: var(--muted); }
+
+/* Uwagi ograniczające (claim boundaries) w sekcjach produktowych. */
+.direction--packly .packly-note { margin: 1.25rem 0 0; color: var(--muted); font-size: 0.9rem; }
+
+/* Link do istniejącej strony dataflow na packly.cc. */
+.direction--packly .packly-dataflow__transfer { margin: 1.75rem 0 0; color: var(--muted); }
+.direction--packly .packly-dataflow__transfer a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }
+
+/* Split: nesting niezależny od maszyny vs CAM dla konkretnej maszyny. */
+.direction--packly .packly-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
+.direction--packly .packly-split h3 { margin: 0 0 0.75rem; font-size: clamp(1.25rem, 2vw, 1.6rem); }
+.direction--packly .packly-split .packly-list { margin-bottom: 0; }
+
+/* Closing: akcje (główny emerald + drugi przycisk). */
+.direction--packly .closing .packly-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1rem; }
+
+@media (max-width: 1279px) {
+  .direction--packly .packly-split { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 760px) {
+  .direction--packly .packly-prose { max-width: none; }
+}

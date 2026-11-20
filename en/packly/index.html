@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="PACKLY is an instant, browser-based GPU-accelerated platform for 2D sheet-metal nesting and CAM automation — your CAD file stays yours, nothing is saved, nothing is shared.">
+  <title>PACKLY — Your CAD stays yours</title>
+  <link rel="canonical" href="https://enclav.cc/en/packly">
+  <link rel="alternate" hreflang="en" href="https://enclav.cc/en/packly">
+  <link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly">
+  <link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://enclav.cc/en/packly">
+  <meta property="og:title" content="PACKLY — Your CAD stays yours">
+  <meta property="og:description" content="PACKLY is an instant, browser-based GPU-accelerated platform for 2D sheet-metal nesting and CAM automation — your CAD file stays yours, nothing is saved, nothing is shared.">
+  <link rel="stylesheet" href="/css/enclav.css">
+  <link rel="stylesheet" href="/css/packly.css">
+</head>
+<body class="direction direction--canvas-bg direction--packly">
+  <section id="top" class="hero">
+    <header class="site-header">
+      <a class="brand" href="#top">ENCLAV<span class="brand__tagline">Imagine what's next.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/create">CREATE</a>
+        <a href="/en/copy">COPY</a>
+        <a href="/en/private-ai">PRIVATE AI</a>
+        <span>ADAPTIVE APPSEC</span>
+        <a href="/en/packly" aria-current="page">PACKLY</a>
+      </nav>
+      <div class="locale" aria-label="Language">
+        <a href="/pl/packly">PL</a><span aria-hidden="true">/</span><a href="/en/packly" aria-current="true">EN</a>
+      </div>
+      <details class="mobile-nav">
+        <summary>Menu</summary>
+        <nav class="mobile-nav__links" aria-label="Mobile navigation"><a href="/en/create">CREATE</a><a href="/en/copy">COPY</a><a href="/en/private-ai">PRIVATE AI</a><span>ADAPTIVE APPSEC</span><a href="/en/packly" aria-current="page">PACKLY</a></nav>
+      </details>
+    </header>
+    <canvas class="hero__canvas" id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="hero__content">
+      <p class="hero__eyebrow">PACKLY</p>
+      <h1 class="hero__title"><span>Your CAD stays yours.</span><span>Nothing saved. Nothing shared.</span></h1>
+      <div class="hero__support">
+        <div>
+          <p>Instant GPU Nesting &amp; CAM Automation — Packly is an instant, browser-based GPU-accelerated hybrid platform for 2D nesting and CAM automation designed to optimize material cutting for both craft workshops and industrial enterprises, which redefines industrial security by protecting your proprietary designs through zero-knowledge data privacy and fully local, secure compute environments.</p>
+          <p>Secure cutting. Confidential computing. Your CAD file never leaves your device. A local WASM parser extracts the required geometry, which is then anonymized. Only the necessary geometric data is sent to an isolated GPU environment for one-time computation. After nesting/CAM is complete, the environment is destroyed and the result is returned to you.</p>
+          <p class="hero__status">Project status — the Packly beta is planned for early 2027.</p>
+        </div>
+        <div class="hero__actions">
+          <a class="button" href="#dataflow">Explore the technology</a>
+          <a class="button button--emerald" href="#contact">Discuss your workflow</a>
+        </div>
+      </div>
+      <p class="hero__labels">YOUR CAD STAYS ON DEVICE · LOCAL WASM PARSER · ANONYMIZED GEOMETRY · ISOLATED GPU · ONE-TIME COMPUTE · DESTROYED</p>
+    </div>
+  </section>
+  <main>
+    <section id="dataflow" class="service-register packly-dataflow">
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading">Your CAD file stays. Only the required geometry moves.</h2>
+          <p class="service-intro">The original CAD file remains on the user's device. A local WASM parser extracts the required geometry, which is then anonymized. Only the necessary geometric data is sent to the isolated GPU environment for one-time computation. After the processing lifecycle completes, the compute environment is destroyed and the result is returned to the user.</p>
+          <p>The original CAD file stays on the device; the transferred data is anonymized geometry required for the task. Nothing is saved. Nothing is shared.</p>
+        </div>
+        <div>
+          <ol class="packly-flow">
+            <li><strong>01 — Import</strong><p>Import supported CAD geometry.</p></li>
+            <li><strong>02 — Local parsing</strong><p>A local WASM parser extracts the geometric information needed for the task.</p></li>
+            <li><strong>03 — Anonymization</strong><p>The extracted geometry is processed to remove identifying or unnecessary information according to the implemented anonymization rules.</p></li>
+            <li><strong>04 — Isolated compute</strong><p>Only the required geometric data is sent to the isolated GPU environment for one-time computation.</p></li>
+            <li><strong>05 — Result delivery</strong><p>The computed result is returned to the originating workflow.</p></li>
+            <li><strong>06 — Environment destruction</strong><p>The one-time compute environment is destroyed after the processing lifecycle completes.</p></li>
+          </ol>
+          <p class="packly-dataflow__transfer">The original CAD file remains on the device; only the anonymized geometry is transferred. <a href="https://www.packly.cc/dataflow-en.html">See how Packly processes your geometry without exposing your CAD file</a></p>
+        </div>
+      </div>
+    </section>
+    <section id="challenge" class="service-register">
+      <div class="packly-prose">
+        <h2 class="section-heading">Industrial designs deserve better protection.</h2>
+        <p class="service-intro">CAD files can reveal more than their geometry.</p>
+        <p>They may contain information about:</p>
+        <ul class="packly-list">
+          <li>Product design.</li>
+          <li>Part dimensions.</li>
+          <li>Manufacturing methods.</li>
+          <li>Customer projects.</li>
+          <li>Proprietary geometry.</li>
+          <li>Production requirements.</li>
+        </ul>
+        <p>Sending original design files to external processing services may expose information unnecessarily.</p>
+        <p>Packly is built around the idea of separating original CAD files from the minimum geometry data required for computation.</p>
+      </div>
+    </section>
+    <section id="nesting" class="service-register">
+      <div class="packly-prose">
+        <h2 class="section-heading">Make better use of every sheet.</h2>
+        <p>Nesting is the process of arranging individual parts on a material sheet to reduce waste and improve material utilization.</p>
+        <p>Packly's initial product direction focuses on:</p>
+        <ul class="packly-list">
+          <li>2D flat metal parts.</li>
+          <li>Sheet dimensions.</li>
+          <li>Part quantities.</li>
+          <li>Geometry constraints.</li>
+          <li>Allowed rotations.</li>
+          <li>Part spacing.</li>
+          <li>Material utilization.</li>
+          <li>Waste analysis.</li>
+        </ul>
+        <p>The initial product scope is deliberately focused on metal sheet cutting.</p>
+      </div>
+    </section>
+    <section id="compute" class="service-register">
+      <div class="packly-prose">
+        <h2 class="section-heading">Use compute where it makes a difference.</h2>
+        <p>GPU acceleration can help execute suitable computational workloads efficiently.</p>
+        <p>Packly's technical direction includes GPU-based compute for supported processing tasks.</p>
+        <p>Performance should be evaluated through:</p>
+        <ul class="packly-list">
+          <li>Processing time.</li>
+          <li>Queue time.</li>
+          <li>GPU utilization.</li>
+          <li>Memory usage.</li>
+          <li>Input complexity.</li>
+          <li>Nesting quality.</li>
+          <li>Result consistency.</li>
+        </ul>
+        <p>Do not publish unmeasured performance figures, throughput claims or speed comparisons.</p>
+        <p>Do not claim all nesting and CAM processing currently uses a GPU without implementation evidence.</p>
+      </div>
+    </section>
+    <section id="cam" class="service-register">
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading">Separate geometry optimization from machine-specific production.</h2>
+          <p>A nesting result and a production-ready machine program are different outputs.</p>
+        </div>
+        <div>
+          <div class="packly-split">
+            <div>
+              <h3>Machine-neutral nesting</h3>
+              <ul class="packly-list">
+                <li>Geometry.</li>
+                <li>Part placement.</li>
+                <li>Transformations.</li>
+                <li>Sheet boundaries.</li>
+                <li>Spacing constraints.</li>
+                <li>Collision validation.</li>
+                <li>Material utilization.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Machine-specific CAM</h3>
+              <ul class="packly-list">
+                <li>Machine profile.</li>
+                <li>Process configuration.</li>
+                <li>Material and thickness.</li>
+                <li>Kerf compensation.</li>
+                <li>Tooling.</li>
+                <li>Lead-in and lead-out.</li>
+                <li>Feed and speed.</li>
+                <li>Cutting sequence.</li>
+                <li>Postprocessor.</li>
+                <li>Controller-specific output.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="packly-note">Production G-code requires a complete and validated Machine Profile.</p>
+          <p class="packly-note">Do not represent machine-neutral geometry output as production-ready CAM.</p>
+        </div>
+      </div>
+    </section>
+    <section id="privacy" class="service-register">
+      <div class="packly-prose">
+        <h2 class="section-heading">Your geometry. Your control.</h2>
+        <p>Packly's privacy approach is based on keeping the original CAD file on the user's device and limiting the information transferred for computation to the geometry required for the task.</p>
+        <p>The page makes the following distinctions:</p>
+        <ul class="packly-list">
+          <li>Original CAD file.</li>
+          <li>Locally extracted geometry.</li>
+          <li>Anonymized geometry.</li>
+          <li>Isolated compute environment.</li>
+          <li>Returned result.</li>
+          <li>Compute environment destruction.</li>
+        </ul>
+      </div>
+    </section>
+    <section id="direction" class="service-register">
+      <div class="packly-prose">
+        <h2 class="section-heading">Built around a focused industrial workflow.</h2>
+        <p>Packly's development direction prioritizes:</p>
+        <ul class="packly-list">
+          <li><strong>2D Metal Nesting</strong> — A focused initial application for flat-sheet metal cutting.</li>
+          <li><strong>Nesting Quality</strong> — Validation of geometry correctness, placement and material utilization.</li>
+          <li><strong>Compute Optimization</strong> — Evaluation of CPU and GPU execution according to actual workload performance.</li>
+          <li><strong>CAM Expansion</strong> — Further development of machine-specific workflows after validated Machine Profile support.</li>
+          <li><strong>Privacy Architecture</strong> — Continued verification of data minimization, processing lifecycle and privacy controls.</li>
+        </ul>
+      </div>
+    </section>
+    <section id="contact" class="closing">
+      <h2>Your designs are valuable. Treat them that way.</h2>
+      <p>Explore a different approach to industrial CAD/CAM processing.</p>
+      <div class="packly-actions">
+        <a class="button button--emerald" href="#contact-form" data-open-contact>Discuss your workflow</a>
+        <a class="button" href="#dataflow">Explore the technology</a>
+      </div>
+    </section>
+    <section id="contact-form" class="contact-form" style="display:none;padding:clamp(2rem,5vw,5rem) var(--page-gutter);background:transparent;">
+      <button class="contact-form__close" aria-label="Close form"></button>
+      <h2 class="section-heading" style="margin-top:0;">We need some information</h2>
+      <p style="max-width:68ch;margin-top:clamp(1rem,3vw,2rem);margin-bottom:clamp(1rem,3vw,2rem);color:#fafafa;opacity:0.9;">The information you provide will help us understand your brand, its specific needs and expectations. This will allow us to initially assess the scope of work and identify the solutions and actions best suited to achieving your goals.</p>
+      <form action="mailto:contact@enclav.cc" method="post" enctype="text/plain" data-section="packly" data-lang="en" data-done="Thank you — your message has been sent." data-err="Sending failed — please email contact@enclav.cc" style="position:relative;max-width:68ch;margin-top:clamp(1rem,3vw,2rem);">
+        <div aria-hidden="true" style="position:absolute;left:-9999px;"><input type="text" name="_hp" tabindex="-1" autocomplete="off"></div>
+        <p class="contact-form__status" role="status" hidden></p>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Company / Organization</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Company / Organization" required>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Industry</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Industry">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Contact person</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Contact person">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Email address</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="email" name="Email address" required>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Phone</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="tel" name="Phone">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Current IT / GPU infrastructure</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Current IT / GPU infrastructure">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Preferred deployment model (On-premise / Private Cloud)</label>
+          <select style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" name="Preferred deployment model (On-premise / Private Cloud)">
+            <option>On-premise</option>
+            <option>Private Cloud</option>
+            <option>To be decided</option>
+          </select>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">AI / LLM models in use</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="AI / LLM models in use">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Planned AI use cases</label>
+          <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Planned AI use cases"></textarea>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Processes to automate</label>
+          <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Processes to automate"></textarea>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Type and volume of data processed</label>
+          <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Type and volume of data processed"></textarea>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Data privacy and security requirements</label>
+          <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Data privacy and security requirements"></textarea>
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Expected performance / processing scale</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Expected performance / processing scale">
+        </div>
+        <div style="margin-bottom:clamp(1rem,3vw,2rem);">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Implementation budget</label>
+          <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Implementation budget">
+        </div>
+        <div style="margin-bottom:0;">
+          <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Additional information / expectations</label>
+          <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Additional information / expectations"></textarea>
+        </div>
+        <button style="width:100%;padding:.75rem 1.25rem;margin-top:clamp(1rem,3vw,2rem);background:#34d399;color:#09090b;border:none;border-radius:4px;font-weight:600;cursor:pointer;" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p class="site-footer__brand">ENCLAV</p>
+    <p class="site-footer__tagline">Imagine what's next.</p>
+    <p class="site-footer__tagline">Technology. Creativity. New possibilities.</p>
+    <p class="site-footer__ventures"><a href="/en/create">CREATE</a> · <a href="/en/copy">COPY</a> · <a href="/en/private-ai">PRIVATE AI</a> · ADAPTIVE APPSEC · <a href="/en/packly">PACKLY</a></p>
+    <p class="site-footer__legal">© ENCLAV. All rights reserved.</p>
+  </footer>
+  <script src="/js/canvas-bg.js"></script>
+  <script src="/js/contact-form.js"></script>
+</body>
+</html>
