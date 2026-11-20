@@ -14,7 +14,7 @@
 
   function openForm() {
     form.style.display = 'block';
-    var first = form.querySelector('input, textarea, select, button');
+    var first = form.querySelector('input:not([name="_hp"]), textarea, select, button');
     if (first) first.focus({ preventScroll: true });
     form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }

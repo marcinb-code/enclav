@@ -647,3 +647,17 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--canvas-bg .contact-form__close:hover {
   color: #10b981;
 }
+/* Krzyżyk rysowany w CSS (bez inline glyphu ✕ — lint emoji); wspólny dla wszystkich
+   form na backdropach canvas-bg (CREATE/COPY) oraz PRIVATE AI (nadpisanie w private-ai.css). */
+.direction--canvas-bg .contact-form__close::before,
+.direction--canvas-bg .contact-form__close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.1rem;
+  height: 2px;
+  background: currentColor;
+}
+.direction--canvas-bg .contact-form__close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.direction--canvas-bg .contact-form__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
