@@ -67,8 +67,8 @@
     var done = function (ok) {
       if (ok) {
         setStatus('ok', f.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.');
+        if (btn) { btn.disabled = false; btn.style.background = '#34d399'; btn.textContent = f.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.'; }
         f.reset();
-        if (btn) { btn.disabled = false; btn.style.background = '#34d399'; btn.textContent = label; }
       } else {
         setStatus('err', f.getAttribute('data-err') || 'Wysyłanie nie powiodło się — napisz do contact@enclav.cc');
         /* niepowodzenie: guzik czarny + info o błędzie */
