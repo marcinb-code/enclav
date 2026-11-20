@@ -1,0 +1,104 @@
+/* ENCLAV PRIVATE AI — kompozycja wyróżniająca w ramach zaakceptowanego kierunku
+   canvas-bg (te same tokeny co CREATE/COPY; sekcje o odmiennych kompozycjach i
+   krokach tonu, bez gradientów/ikon/rządków w sekcjach). */
+
+/* Hero: nadtytuł działu + etykiety usługowe.
+   Układ hasła (duże białe lewe + mniejsze emerald po prawej, mobile wyrównane
+   do lewej) DZIEDZICZONY w całości z .direction--canvas-bg — tak samo jak
+   CREATE i COPY; brak nadpisania. */
+.direction--private-ai .hero__eyebrow {
+  display: block;
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 650;
+}
+.direction--private-ai .hero__labels {
+  margin: 1.75rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Krok tonu między sekcjami (surface), bez linii i cieni. */
+.pai-surface { background: var(--surface); }
+.direction--private-ai .section-heading { max-width: 16ch; }
+
+/* S1 — pole 2×2 twierdzeń (bez ramek, bez ikon). */
+.pai-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
+}
+.pai-feature h3 { margin: 0 0 .4rem; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.2; }
+.pai-feature p { margin: 0; color: var(--muted); }
+
+/* Listy punktowane w rejestrze usług i w S5. */
+.direction--private-ai .service-row ul,
+.direction--private-ai .pai-list {
+  margin: .6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+.direction--private-ai .service-row li,
+.direction--private-ai .pai-list li { margin: .2rem 0; }
+.direction--private-ai .service-row ul li::marker,
+.direction--private-ai .pai-list li::marker { color: var(--accent); }
+
+/* S3 — rejestry sprzętowe: nazwa + VRAM akcentem, oddzielone przestrzeną. */
+.pai-specs { display: grid; gap: 1.25rem; }
+.pai-spec h3 { margin: 0 0 .3rem; font-size: clamp(1.1rem, 1.7vw, 1.4rem); }
+.pai-spec p { margin: 0; color: var(--muted); }
+.pai-vram { color: var(--accent); font-weight: 650; }
+
+/* Uwagi ograniczające (claim boundaries). */
+.pai-note { margin: 1.25rem 0 0; color: var(--muted); font-size: .9rem; }
+.pai-note + .pai-note { margin-top: .5rem; }
+
+/* S4 — siatka 3 zastosowań. */
+.pai-cases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
+}
+.pai-case h3 { margin: 0 0 .4rem; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.2; }
+.pai-case p { margin: 0; color: var(--muted); }
+
+/* S6 — pięć kroków w bloku emerald (kolejność realną listą). */
+.direction--private-ai .approach ol {
+  margin: 1.25rem 0 0;
+  padding-left: 1.2rem;
+}
+.direction--private-ai .approach li { margin: .5rem 0; }
+.direction--private-ai .approach li strong { display: block; margin-bottom: .15rem; }
+.direction--private-ai .approach p { margin: .35rem 0 0; }
+.direction--private-ai .approach .pai-objective { margin-top: 1.25rem; }
+.direction--private-ai .approach .pai-objective + .pai-objective { margin-top: .25rem; }
+
+/* S7 — drugie CTA jako przycisk w tonie ground. */
+.direction--private-ai .closing .hero__actions,
+.direction--private-ai .closing .pai-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1rem; }
+
+@media (max-width: 1279px) {
+  .direction--private-ai .pai-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .direction--private-ai .pai-features,
+  .direction--private-ai .pai-cases { grid-template-columns: 1fr; }
+}
+/* Zamknięcie formularza: krzyżyk rysowany w CSS (bez glyphu ✕ — lint emoji). */
+.direction--private-ai .contact-form__close::before,
+.direction--private-ai .contact-form__close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.1rem;
+  height: 2px;
+  background: currentColor;
+}
+.direction--private-ai .contact-form__close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.direction--private-ai .contact-form__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .direction--private-ai * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

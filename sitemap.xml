@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://enclav.cc/pl/create</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/create"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/create"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/create"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/en/create</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/create"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/create"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/create"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/pl/copy</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/copy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/copy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/copy"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/en/copy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/copy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/copy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/copy"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/pl/private-ai</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/private-ai"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/en/private-ai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/private-ai"/>
+  </url>
+</urlset>

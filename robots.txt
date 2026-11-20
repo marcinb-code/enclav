@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enclav.cc/sitemap.xml
