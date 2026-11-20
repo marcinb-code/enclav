@@ -6,6 +6,8 @@
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+  /* #contact-form to <section>; prawdziwy <form> z polami leży wewnątrz — transport operuje na <form>. */
+  var f = (form.querySelector && form.querySelector('form')) || form;
 
   var reduce = false;
   try {
@@ -40,34 +42,34 @@
     status.textContent = text;
     status.style.color = kind === 'ok' ? '#34d399' : '#f87171';
   }
-  form.addEventListener('submit', function (event) {
+  f.addEventListener('submit', function (event) {
     event.preventDefault();
-    var hp = form.querySelector('input[name="_hp"]');
+    var hp = f.querySelector('input[name="_hp"]');
     if (hp && hp.value) { /* honeypot: udana "wysylka" bez maila */
-      setStatus('ok', form.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.');
-      form.reset();
+      setStatus('ok', f.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.');
+      f.reset();
       return;
     }
-    if (!form.reportValidity()) return;
+    if (!f.reportValidity()) return;
     var body = {
-      _section: form.getAttribute('data-section') || 'contact',
-      _lang: form.getAttribute('data-lang') || 'en'
+      _section: f.getAttribute('data-section') || 'contact',
+      _lang: f.getAttribute('data-lang') || 'en'
     };
-    var els = form.querySelectorAll('input, textarea, select');
+    var els = f.querySelectorAll('input, textarea, select');
     for (var j = 0; j < els.length; j++) {
       var el = els[j];
       if (!el.name || el.name === '_hp') continue;
       body[el.name] = el.value;
     }
-    var btn = form.querySelector('button[type="submit"]');
+    var btn = f.querySelector('button[type="submit"]');
     var label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = '…'; }
     var done = function (ok) {
       if (ok) {
-        setStatus('ok', form.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.');
-        form.reset();
+        setStatus('ok', f.getAttribute('data-done') || 'Dziękujemy — wiadomość wysłana.');
+        f.reset();
       } else {
-        setStatus('err', form.getAttribute('data-err') || 'Wysyłanie nie powiodło się — napisz do contact@enclav.cc');
+        setStatus('err', f.getAttribute('data-err') || 'Wysyłanie nie powiodło się — napisz do contact@enclav.cc');
       }
       if (btn) { btn.disabled = false; btn.textContent = label; }
     };
