@@ -97,6 +97,8 @@ p { max-width: 68ch; text-wrap: pretty; }
 .site-nav { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2.5rem); }
 .site-nav a, .locale a { color: inherit; text-decoration: none; }
 .site-nav a[aria-current="page"] { color: var(--accent); text-decoration: underline; text-decoration-thickness: .15em; text-underline-offset: .45em; }
+/* D-020: hover emerald na aktywnych pozycjach menu (CREATE/COPY/PRIVATE AI/PACKLY) */
+.site-nav a:hover, .locale a:hover, .mobile-nav__links a:hover { color: var(--accent); }
 .locale { display: flex; align-items: center; gap: .45rem; white-space: nowrap; }
 .locale a[aria-current="true"] { color: var(--accent); }
 .mobile-nav { display: none; }
@@ -489,7 +491,12 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   color: inherit;
   text-decoration: none;
+  transition: color .15s ease-out;
 }
+/* D-020: hover emerald (specyficznosc rowna bazowej — blok pozniej w pliku wygrywa) */
+.direction--canvas-bg .site-nav a:hover,
+.direction--canvas-bg .locale a:hover,
+.direction--canvas-bg .mobile-nav__links a:hover { color: #34d399; }
 
 .direction--canvas-bg .site-nav a[aria-current="page"],
 .direction--canvas-bg .locale a[aria-current="true"] {

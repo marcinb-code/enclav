@@ -78,7 +78,9 @@
       <button class="contact-form__close" aria-label="Zamknij formularz">✕</button>
       <h2 class="section-heading" style="margin-top:0;">Potrzebujemy kilku informacji</h2>
       <p style="max-width:68ch;margin-top:clamp(1rem,3vw,2rem);margin-bottom:clamp(1rem,3vw,2rem);color:#fafafa;opacity:0.9;">Informacje, które nam przekażesz, pozwolą lepiej poznać specyfikę Twojej marki, zrozumieć jej realne potrzeby i oczekiwania. Dzięki temu będziemy mogli wstępnie określić zakres niezbędnych działań oraz ocenić, jakie rozwiązania najlepiej pomogą osiągnąć zamierzony cel.</p>
-      <form action="mailto:contact@enclav.cc" method="post" enctype="text/plain" style="max-width:68ch;margin-top:clamp(1rem,3vw,2rem);">
+      <form action="mailto:contact@enclav.cc" method="post" enctype="text/plain" data-section="copy" data-lang="pl" data-done="Dziękujemy — wiadomość wysłana." data-err="Wysyłanie nie powiodło się — napisz do contact@enclav.cc" style="position:relative;max-width:68ch;margin-top:clamp(1rem,3vw,2rem);">
+        <div aria-hidden="true" style="position:absolute;left:-9999px;"><input type="text" name="_hp" tabindex="-1" autocomplete="off"></div>
+        <p class="contact-form__status" role="status" hidden></p>
         <div style="margin-bottom:clamp(1rem,3vw,2rem);">
           <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Klient / Firma</label>
           <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Klient / Firma" required>
