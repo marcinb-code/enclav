@@ -473,6 +473,16 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   font-weight: 700;
 }
 
+/* ── Nadtytuł działu (CREATE/COPY) — szary, nad hasłem (PACKLY/PRIVATE AI mają
+   własne reguły w swoich arkuszach; tutaj tylko brakujące warianty). ── */
+.direction--canvas-bg .hero__eyebrow {
+  display: block;
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
 /* ── Logo ENCLAV — zawsze emerald ── */
 .direction--canvas-bg .brand {
   color: #34d399;

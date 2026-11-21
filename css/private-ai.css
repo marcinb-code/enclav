@@ -71,7 +71,7 @@
 .direction--private-ai .approach li { margin: .5rem 0; }
 .direction--private-ai .approach li strong { display: block; margin-bottom: .15rem; }
 .direction--private-ai .approach p { margin: .35rem 0 0; }
-.direction--private-ai .approach .pai-objective { margin-top: 1.25rem; }
+.direction--private-ai .approach .pai-objective { margin-top: 1.25rem; font-weight: 700; }
 .direction--private-ai .approach .pai-objective + .pai-objective { margin-top: .25rem; }
 
 /* S7 — drugie CTA jako przycisk w tonie ground. */
