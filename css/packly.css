@@ -31,8 +31,11 @@
 /* Hasło główne EN „Nothing saved. Nothing shared.” — mniejsze, proporcje jak w wersji PL
    (biały first linia duża, emerald last linia mniejsza — wzór PRIVATE AI).
    Owner fix 2026-11-21: większy odstęp między znakami (wzór wersji PL: -0.025em) + wycentrowanie
-   drugiej linii względem pierwszej („Your CAD stays yours.“). */
-html[lang="en"] .direction--packly .hero__title { justify-content: center; }
+   drugiej linii względem pierwszej („Your CAD stays yours.“).
+   Owner fix 2026-11-21 (batch 4, EN only): pionowe wyrównanie emerald do linii „stays yours.”
+   (dół prawego spanu = dół lewego) — BEZ zmiany font-size i letter-spacing. Poniżej 1280px
+   hero__title jest display:block, więc reguła nie ma wpływu na tablet/mobile. */
+html[lang="en"] .direction--packly .hero__title { justify-content: center; align-items: flex-end; }
 .direction--packly .hero__title span:last-child { font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -0.025em; }
 
 /* Sekcje tekstowe: szare przezroczyste tło (wzór z PRIVATE AI — .pai-surface). */
