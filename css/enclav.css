@@ -299,7 +299,7 @@ html[lang="pl"] body.direction--assigned:not(.direction--copy) .hero::before {
   .site-nav { display: none; }
   .mobile-nav { display: block; grid-column: 1 / -1; }
   .mobile-nav summary { width: max-content; min-height: 2.75rem; padding: .55rem .75rem; cursor: pointer; }
-  .mobile-nav__links { display: flex; flex-wrap: wrap; gap: 1rem; padding: .75rem 0; }
+  .mobile-nav__links { display: flex; flex-wrap: wrap; gap: 1rem; padding: .75rem 0; justify-content: flex-end; } /* Owner fix (2026-11-21, batch 9): menu mobilne -> prawej krawedzi */
   .hero { min-height: 45rem; min-height: 90svh; }
   .hero::before { inset-block-start: 50%; }
   .hero__content { align-content: center; padding-top: 1.5rem; }
