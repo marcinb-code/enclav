@@ -205,10 +205,7 @@ p { max-width: 68ch; text-wrap: pretty; }
 .site-footer__tagline:nth-of-type(2) { font-weight: 700; }
 .site-footer__legal { font-size: .7rem; }
 .site-footer__legal a { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
-/* Owner fix (2026-11-21, batch 4): desktop — mailto na tej samej linii, prawo strony ekranu. */
-@media (min-width: 1280px) {
-  .site-footer__legal a { float: right; }
-}
+/* Owner fix (2026-11-21, batch 6): desktop zachowuje wersje identyczna jak wersja mobilna. */
 
 /* The alternatives deliberately test distinct systems; these styles are not approved brand tokens. */
 .direction--atlas .hero { min-height: 54rem; background: var(--ground); }
