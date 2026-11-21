@@ -29,14 +29,35 @@
 }
 
 /* Hasło główne EN „Nothing saved. Nothing shared.” — mniejsze, proporcje jak w wersji PL
-   (biały first linia duża, emerald last linia mniejsza — wzór PRIVATE AI). */
-.direction--packly .hero__title span:last-child { font-size: clamp(2rem, 6vw, 4rem); }
+   (biały first linia duża, emerald last linia mniejsza — wzór PRIVATE AI).
+   Owner fix 2026-11-21: większy odstęp między znakami (wzór wersji PL: -0.025em) + wycentrowanie
+   drugiej linii względem pierwszej („Your CAD stays yours.“). */
+html[lang="en"] .direction--packly .hero__title { justify-content: center; }
+.direction--packly .hero__title span:last-child { font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -0.025em; }
 
 /* Sekcje tekstowe: szare przezroczyste tło (wzór z PRIVATE AI — .pai-surface). */
 .direction--packly .service-register:has(> .packly-prose) { background: rgba(255, 255, 255, 0.025); }
 
-/* Closing: hasło mniejsze i białe (nadpisanie koloru emerald z enclav.css). */
-.direction--packly .closing h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); color: #fafafa; }
+/* Owner fix 2026-11-21: sekcje #nesting („Make better use of every sheet.”) i #privacy
+   („Your geometry. Your control.”) — tło cały emerald, wzór z PRIVATE AI (.approach:
+   Deploy. Optimize. Automate. = background var(--accent) + kolor tekstu var(--accent-ink)). */
+.direction--packly #nesting,
+.direction--packly #privacy {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.direction--packly #nesting .section-heading,
+.direction--packly #privacy .section-heading { color: var(--accent-ink); }
+.direction--packly #nesting .service-intro,
+.direction--packly #privacy .service-intro { color: var(--accent-ink); }
+.direction--packly #nesting .packly-list li,
+.direction--packly #privacy .packly-list li { color: var(--accent-ink); }
+.direction--packly #nesting .packly-list li::marker,
+.direction--packly #privacy .packly-list li::marker { color: var(--accent-ink); }
+
+/* Closing: hasło białe; owner fix 2026-11-21: rozmiar taki sam jak PRIVATE AI
+   („Ready to bring AI into your infrastructure?” — clamp(2.6rem, 7vw, 7rem)). */
+.direction--packly .closing h2 { font-size: clamp(2.6rem, 7vw, 7rem); color: #fafafa; }
 
 /* Hero: etykiety etapu. */
 .direction--packly .hero__labels {

@@ -63,10 +63,13 @@
 .pai-case h3 { margin: 0 0 .4rem; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.2; }
 .pai-case p { margin: 0; color: var(--muted); }
 
-/* S6 — pięć kroków w bloku emerald (kolejność realną listą). */
+/* S6 — pięć kroków w bloku emerald (kolejność realną listą).
+   Owner fix 2026-11-21: usuwamy domyślny punktator listy (1. 2. 3. …) —
+   numeracja „01 — Understand” … „05 — Automate” pochodzi z treści akapitu. */
 .direction--private-ai .approach ol {
   margin: 1.25rem 0 0;
   padding-left: 1.2rem;
+  list-style: none;
 }
 .direction--private-ai .approach li { margin: .5rem 0; }
 .direction--private-ai .approach li strong { display: block; margin-bottom: .15rem; }
