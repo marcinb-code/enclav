@@ -123,6 +123,8 @@ html[lang="en"] .direction--packly .hero__title { justify-content: center; align
 /* Link do istniejącej strony dataflow na packly.cc. */
 .direction--packly .packly-dataflow__transfer { margin: 1.75rem 0 0; color: var(--muted); }
 .direction--packly .packly-dataflow__transfer a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }
+/* Owner fix REV6.5: tekst w sekcji #data-restatement — tylko tekst, NIE link (emerald). */
+.direction--packly .packly-dataflow__transfer.plain { color: var(--accent); }
 
 /* Split: nesting niezależny od maszyny vs CAM dla konkretnej maszyny. */
 .direction--packly .packly-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
