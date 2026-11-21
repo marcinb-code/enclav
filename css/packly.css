@@ -83,6 +83,21 @@ html[lang="en"] .direction--packly .hero__title { justify-content: center; align
   color: var(--muted);
   font-size: 0.9rem;
 }
+/* Owner fix 2026-11-21 (REV6.4 — EMERALD ARROW VISUAL CORRECTION): strzałki procesu →➜
+   HEAVY ROUND-TIPPED RIGHTWARDS ARROW (U+279C), emerald #34D399, font-weight 900, font-size
+   1.35em relative to adjacent process labels, inline-block, vertical-align middle, margin-inline
+   0.3em. Wersja z regulaminu: grubsza/bardziej wyraźna niż thin →; mobile: bez zmian struktury. */
+.packly-process-arrow {
+  display: inline-block;
+  color: #34d399;
+  font-family: "Arial Unicode MS", "Segoe UI Symbol", sans-serif;
+  font-size: 1.35em;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 1;
+  vertical-align: middle;
+  margin-inline: 0.3em;
+}
 
 /* Wzorzec sekcji z nagłówkiem i treścią (prose-only). */
 .direction--packly .packly-prose .section-heading { max-width: 20ch; }
