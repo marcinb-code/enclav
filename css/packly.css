@@ -11,14 +11,28 @@
   font-weight: 650;
 }
 
-/* Hero: status projektu / wersja beta planowana na early 2027. */
-.direction--packly .hero__status {
-  margin: 1.5rem 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+/* Hero: status beta — launch pill. Wzór wizualny z live Packly (.badge „COMING 2026”,
+   badge: inline-block, 0.7rem, weight 600, letter-spacing 0.02em, kolor akcent cyan,
+   background rgba(56,189,248,.1), border 1px rgba(56,189,248,.3), radius 9999px,
+   padding 0.12em 0.5em, white-space: nowrap) — REV6.1: tekst zmieniony na „COMING EARLY 2027”
+   (EN) / „BETA · POCZĄTK 2027” (PL); sam styl pill jest identyczny dla obu wersji. */
+.direction--packly .hero__status { margin: 0 0 0.75rem; }
+.direction--packly .hero__status .packly-pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgb(56, 189, 248);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 9999px;
+  padding: 0.12em 0.5em;
+  margin: 0;
+  white-space: nowrap;
 }
 
-/* Hero: podstawowy tekst supportu — lead (p:first-child) bold emerald, reszta muted. */
+/* Hero: podstawowy tekst supportu — lead (p:first-child) bold emerald, drugi akapit =
+   główny przekaz wartości (lead paragraph, owner copy brief REV6.1 §5.1) — pełny ink, bold. */
 .direction--packly .hero__support > div > p {
   color: var(--muted);
   font-weight: 400;
@@ -27,6 +41,7 @@
   color: #34d399;
   font-weight: 700;
 }
+.direction--packly .hero__support > div > p + p { color: var(--ink); font-weight: 700; }
 
 /* Hasło główne EN „Nothing saved. Nothing shared.” — mniejsze, proporcje jak w wersji PL
    (biały first linia duża, emerald last linia mniejsza — wzór PRIVATE AI).
@@ -99,7 +114,7 @@ html[lang="en"] .direction--packly .hero__title { justify-content: center; align
 .direction--packly .packly-split h3 { margin: 0 0 0.75rem; font-size: clamp(1.25rem, 2vw, 1.6rem); }
 .direction--packly .packly-split .packly-list { margin-bottom: 0; }
 
-/* Closing: akcje (główny emerald + drugi przycisk). */
+/* Closing: akcje (główny emerald — final CTA, bez powtórki secondary z hero). */
 .direction--packly .closing .packly-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1rem; }
 
 @media (max-width: 1279px) {
@@ -108,4 +123,14 @@ html[lang="en"] .direction--packly .hero__title { justify-content: center; align
 
 @media (max-width: 760px) {
   .direction--packly .packly-prose { max-width: none; }
+}
+
+/* ── Packly REV6.3 — seven-stage confidential compute diagram ── */
+.packly-diagram { margin: clamp(2rem, 5vw, 3rem) 0 0; }
+.packly-diagram__svg { display: block; width: 100%; height: auto; }
+.packly-diagram__svg--desktop { display: none; }
+
+@media (min-width: 1025px) {
+  .packly-diagram__svg--desktop { display: block; }
+  .packly-diagram__svg--mobile { display: none; }
 }

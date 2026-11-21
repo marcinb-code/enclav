@@ -40,26 +40,27 @@
     <canvas class="hero__canvas" id="bgCanvas" aria-hidden="true"></canvas>
     <div class="hero__content">
       <p class="hero__eyebrow">ENCLAV PACKLY</p>
+      <p class="hero__status"><span class="packly-pill">COMING EARLY 2027</span></p>
       <h1 class="hero__title"><span>Your CAD stays yours.</span><span>Nothing saved. Nothing shared.</span></h1>
       <div class="hero__support">
         <div>
-          <p>Secure cutting. Confidential computing. — Packly.cc is an instant, browser-based GPU-accelerated platform for 2D nesting and CAM automation for the sheet-metal, woodworking and textile industries.</p>
-          <p class="hero__status">Project status — the Packly beta is planned for early 2027.</p>
+          <p>Secure cutting. Confidential computing.</p>
+          <p>Packly.cc is an instant, browser-based GPU-accelerated hybrid platform for 2D nesting and CAM automation designed to optimize material cutting for both craft workshops and industrial enterprises, which redefines industrial security by protecting your proprietary designs through zero-knowledge data privacy and fully local, secure compute environments.</p>
         </div>
         <div class="hero__actions">
           <a class="button" href="#dataflow">Explore the technology</a>
           <a class="button button--emerald" href="mailto:hello@packly.cc" data-mailto="hello@packly.cc" data-mailto-subject="Ask about beta access">Ask about beta access</a>
         </div>
       </div>
-      <p class="hero__labels">YOUR CAD STAYS ON DEVICE · LOCAL WASM PARSER · ANONYMIZED GEOMETRY · ISOLATED GPU · ONE-TIME COMPUTE · DESTROYED</p>
+      <p class="hero__labels">YOUR CAD STAYS ON DEVICE → LOCAL WASM PARSER → ANONYMIZED GEOMETRY → ISOLATED GPU → ONE-TIME COMPUTE → RESULT COMES BACK → PURGE &amp; DESTROY</p>
     </div>
   </section>
   <main>
     <section id="privacy-device" class="service-register">
       <div class="service-layout">
         <div>
-          <h2 class="section-heading">Your CAD file stays on your device.</h2>
-          <p>Secure cutting. Confidential computing. Your CAD file never leaves your device. A local WASM parser extracts the required geometry, which is then anonymized. Only the necessary geometric data is sent to an isolated GPU environment for one-time computation. After nesting/CAM is complete, the environment is destroyed and the result is returned to you.</p>
+          <h2 class="section-heading">Secure cutting. Confidential computing.</h2>
+          <p>Your CAD file never leaves your device. A local WASM parser extracts the required geometry, which is then anonymized. Only the necessary geometric data is sent to an isolated GPU environment for one-time computation. After nesting/CAM is complete, the environment is destroyed and the result is returned to you.</p>
         </div>
       </div>
     </section>
@@ -68,16 +69,88 @@
         <div>
           <h2 class="section-heading">Your CAD file stays. Only the required geometry moves.</h2>
           <p class="service-intro">The original CAD file remains on the user's device. A local WASM parser extracts the required geometry, which is then anonymized. Only the necessary geometric data is sent to the isolated GPU environment for one-time computation. After the processing lifecycle completes, the compute environment is destroyed and the result is returned to the user.</p>
-          <p>The original CAD file stays on the device; the transferred data is anonymized geometry required for the task. Nothing is saved. Nothing is shared.</p>
+          <div class="packly-diagram">
+            <svg class="packly-diagram__svg packly-diagram__svg--desktop" viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="packlyFlowTitle packlyFlowDesc">
+              <title id="packlyFlowTitle">Packly confidential compute pipeline</title>
+              <desc id="packlyFlowDesc">The CAD file stays on your device. Only anonymized geometry is sent to an ephemeral GPU. The result returns to your device, then the compute environment is destroyed. Nothing saved. Nothing shared.</desc>
+              <defs>
+                <marker id="pk-arrow-d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="strokeWidth">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+                </marker>
+              </defs>
+              <rect x="10" y="40" width="400" height="300" rx="16" fill="none" stroke="#52525b" stroke-width="1.6" stroke-dasharray="9 7" />
+              <text x="24" y="60" fill="#a1a1aa" font-size="13" font-weight="700" letter-spacing="-0.2">YOUR DEVICE</text>
+              <text x="390" y="60" text-anchor="end" fill="#a1a1aa" font-size="13" font-weight="700" letter-spacing="-0.2">YOUR FILE STAYS HERE</text>
+              <rect x="24" y="80" width="150" height="52" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="99" y="103" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2">CAD FILE</text>
+              <text x="99" y="118" text-anchor="middle" fill="#71717a" font-size="9.5" font-weight="400">PLIK CAD</text>
+              <rect x="24" y="136" width="150" height="52" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="99" y="158" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2">WASM PARSER</text>
+              <text x="99" y="173" text-anchor="middle" fill="#71717a" font-size="9.5" font-weight="400">PARSER WASM</text>
+              <rect x="24" y="216" width="150" height="64" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="99" y="244" text-anchor="middle" fill="#34d399" font-size="13.5" font-weight="800" letter-spacing="-0.2">RESULT</text>
+              <text x="99" y="258" text-anchor="middle" fill="#a1a1aa" font-size="10" font-weight="400">Nesting · CAM output</text>
+              <rect x="430" y="80" width="140" height="52" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="500" y="106" text-anchor="middle" fill="#fafafa" font-size="11" font-weight="700" letter-spacing="-0.2">ANONYMIZED GEOMETRY</text>
+              <text x="500" y="121" text-anchor="middle" fill="#34d399" font-size="9.5" font-weight="400">Transferred data</text>
+              <rect x="660" y="90" width="180" height="100" rx="12" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="750" y="120" text-anchor="middle" fill="#34d399" font-size="12.5" font-weight="700" letter-spacing="-0.2">EPHEMERAL GPU</text>
+              <text x="750" y="135" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="400">Isolated · One-shot</text>
+              <text x="750" y="150" text-anchor="middle" fill="#34d399" font-size="9.5" font-weight="600" letter-spacing="0.18em">NESTING / CAM COMPUTE</text>
+              <path d="M 174 110 L 660 110" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#pk-arrow-d)" />
+              <path d="M 840 110 L 99 248" fill="none" stroke="#34d399" stroke-width="3.5" marker-end="url(#pk-arrow-d)" />
+              <text x="700" y="104" fill="#34d399" font-size="11" font-weight="700" letter-spacing="0.06em">THE RESULT COMES BACK</text>
+              <path d="M 750 190 L 750 250" fill="none" stroke="#52525b" stroke-width="1.6" marker-end="url(#pk-arrow-d)" />
+              <rect x="660" y="250" width="180" height="70" rx="12" fill="rgba(52,211,153,0.04)" stroke="#52525b" stroke-width="1.2" />
+              <text x="750" y="276" text-anchor="middle" fill="#e4e4e7" font-size="11.5" font-weight="700" letter-spacing="-0.2">PURGE &amp; DESTROY</text>
+              <text x="750" y="291" text-anchor="middle" fill="#71717a" font-size="10" font-weight="400">Ephemeral compute</text>
+            </svg>
+            <svg class="packly-diagram__svg packly-diagram__svg--mobile" viewBox="0 0 420 690" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="packlyFlowTitle packlyFlowDescV">
+              <title id="packlyFlowTitle">Packly confidential compute pipeline</title>
+              <desc id="packlyFlowDescV">The CAD file stays on your device. Only anonymized geometry is sent to an ephemeral GPU. The result returns to your device, then the compute environment is destroyed. Nothing saved. Nothing shared.</desc>
+              <defs>
+                <marker id="pk-arrow-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="strokeWidth">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+                </marker>
+              </defs>
+              <rect x="8" y="20" width="404" height="300" rx="16" fill="none" stroke="#52525b" stroke-width="1.6" stroke-dasharray="9 7" />
+              <text x="22" y="46" fill="#a1a1aa" font-size="13" font-weight="700" letter-spacing="-0.2">YOUR DEVICE</text>
+              <text x="412" y="46" text-anchor="end" fill="#a1a1aa" font-size="13" font-weight="700" letter-spacing="-0.2">YOUR FILE STAYS HERE</text>
+              <rect x="22" y="60" width="180" height="48" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="112" y="84" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2">CAD FILE</text>
+              <text x="112" y="99" text-anchor="middle" fill="#71717a" font-size="9.5" font-weight="400">PLIK CAD</text>
+              <rect x="22" y="116" width="180" height="48" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="112" y="140" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2">WASM PARSER</text>
+              <text x="112" y="155" text-anchor="middle" fill="#71717a" font-size="9.5" font-weight="400">PARSER WASM</text>
+              <rect x="22" y="190" width="180" height="56" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="112" y="216" text-anchor="middle" fill="#34d399" font-size="13.5" font-weight="800" letter-spacing="-0.2">RESULT</text>
+              <text x="112" y="230" text-anchor="middle" fill="#a1a1aa" font-size="10" font-weight="400">Nesting · CAM output</text>
+              <rect x="22" y="330" width="120" height="48" rx="10" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="82" y="356" text-anchor="middle" fill="#fafafa" font-size="11" font-weight="700" letter-spacing="-0.2">ANONYMIZED GEOMETRY</text>
+              <text x="82" y="371" text-anchor="middle" fill="#34d399" font-size="9.5" font-weight="400">Transferred data</text>
+              <path d="M 112 164 L 112 460" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#pk-arrow-m)" />
+              <path d="M 160 550 L 160 246" fill="none" stroke="#34d399" stroke-width="3.5" marker-end="url(#pk-arrow-m)" />
+              <text x="112" y="180" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700" letter-spacing="0.06em">THE RESULT COMES BACK</text>
+              <path d="M 112 550 L 112 600" fill="none" stroke="#52525b" stroke-width="1.6" marker-end="url(#pk-arrow-m)" />
+              <rect x="22" y="590" width="180" height="60" rx="12" fill="rgba(52,211,153,0.04)" stroke="#52525b" stroke-width="1.2" />
+              <text x="112" y="626" text-anchor="middle" fill="#e4e4e7" font-size="11.5" font-weight="700" letter-spacing="-0.2">PURGE &amp; DESTROY</text>
+              <text x="112" y="641" text-anchor="middle" fill="#71717a" font-size="10" font-weight="400">Ephemeral compute</text>
+              <rect x="22" y="460" width="180" height="90" rx="12" fill="rgba(52,211,153,0.04)" stroke="#34d399" stroke-width="1.2" />
+              <text x="112" y="486" text-anchor="middle" fill="#34d399" font-size="12.5" font-weight="700" letter-spacing="-0.2">EPHEMERAL GPU</text>
+              <text x="112" y="501" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="400">Isolated · One-shot</text>
+              <text x="112" y="516" text-anchor="middle" fill="#34d399" font-size="9.5" font-weight="600" letter-spacing="0.18em">NESTING / CAM COMPUTE</text>
+            </svg>
+          </div>
         </div>
         <div>
           <ol class="packly-flow">
-            <li><strong>01 — Import</strong><p>Import supported CAD geometry.</p></li>
-            <li><strong>02 — Local parsing</strong><p>A local WASM parser extracts the geometric information needed for the task.</p></li>
-            <li><strong>03 — Anonymization</strong><p>The extracted geometry is processed to remove identifying or unnecessary information according to the implemented anonymization rules.</p></li>
-            <li><strong>04 — Isolated compute</strong><p>Only the required geometric data is sent to the isolated GPU environment for one-time computation.</p></li>
-            <li><strong>05 — Result delivery</strong><p>The computed result is returned to the originating workflow.</p></li>
-            <li><strong>06 — Environment destruction</strong><p>The one-time compute environment is destroyed after the processing lifecycle completes.</p></li>
+            <li><strong>01 — Original CAD stays on your device</strong><p>The original CAD file remains inside the user's device.</p></li>
+            <li><strong>02 — Local WASM parser</strong><p>The local parser extracts the geometry required for the computation.</p></li>
+            <li><strong>03 — Anonymized geometry</strong><p>The extracted geometry is anonymized according to the implemented processing rules.</p></li>
+            <li><strong>04 — Isolated GPU environment</strong><p>Only the necessary geometric data is transferred to the isolated GPU environment.</p></li>
+            <li><strong>05 — One-time computation</strong><p>The compute environment performs the requested Nesting/CAM workload.</p></li>
+            <li><strong>06 — THE RESULT COMES BACK</strong><p>The Nesting/CAM result is transmitted back to the user's device and lands in the RESULT node inside the device boundary.</p></li>
+            <li><strong>07 — PURGE &amp; DESTROY</strong><p>After the processing lifecycle completes, the ephemeral compute environment is purged and destroyed.</p></li>
           </ol>
           <p class="packly-dataflow__transfer">The original CAD file remains on the device; only the anonymized geometry is transferred. <a href="https://www.packly.cc/dataflow-en.html">See how Packly processes your geometry without exposing your CAD file</a></p>
         </div>
@@ -133,8 +206,6 @@
           <li>Nesting quality.</li>
           <li>Result consistency.</li>
         </ul>
-        <p>Do not publish unmeasured performance figures, throughput claims or speed comparisons.</p>
-        <p>Do not claim all nesting and CAM processing currently uses a GPU without implementation evidence.</p>
       </div>
     </section>
     <section id="cam" class="service-register">
@@ -174,7 +245,6 @@
             </div>
           </div>
           <p class="packly-note">Production G-code requires a complete and validated Machine Profile.</p>
-          <p class="packly-note">Do not represent machine-neutral geometry output as production-ready CAM.</p>
         </div>
       </div>
     </section>
@@ -211,7 +281,6 @@
       <p>Explore a different approach to industrial CAD/CAM processing.</p>
       <div class="packly-actions">
         <a class="button button--emerald" href="mailto:hello@packly.cc" data-mailto="hello@packly.cc" data-mailto-subject="Ask about beta access">Ask about beta access</a>
-        <a class="button" href="#dataflow">Explore the technology</a>
       </div>
     </section>
     <section id="contact-form" class="contact-form" style="display:none;padding:clamp(2rem,5vw,5rem) var(--page-gutter);background:transparent;">
