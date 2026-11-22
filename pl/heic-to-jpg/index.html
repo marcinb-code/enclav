@@ -56,7 +56,7 @@
           <p data-i18n="tool_hero_b">Konwertuj zdjęcia HEIC i HEIF do JPG bezpośrednio w przeglądarce. Bez przesyłania plików, bez konta i bez opłat.</p>
         </div>
         <div class="hero__actions">
-          <a class="button button--emerald" href="#converter" data-i18n="cta_convert">Konwertuj HEIC na JPG</a>
+          <a class="button button--emerald" href="#converter" data-i18n="cta_convert">Konwertuj</a>
           <a class="button" href="#how" data-i18n="how">Jak to działa</a>
         </div>
       </div>
@@ -69,7 +69,13 @@
 
   <main>
     <section id="converter" class="converter">
-      <h2 data-i18n="conv_title">Konwerter</h2>
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading" data-i18n="conv_title">Darmowy konwerter HEIC na JPG</h2>
+          <p class="service-intro" data-i18n="conv_intro">Darmowy konwerter HEIC na JPG — pliki HEIC i HEIF z telefonu są dekodowane do JPG lokalnie w przeglądarce przez lokalny silnik WebAssembly, a Twoje zdjęcia nie opuszczają urządzenia.</p>
+          <p>Bez konta i bez limitów. Batch i eksport do ZIP są wbudowane.</p>
+        </div>
+        <div>
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drop files">
         <div><svg class="ic ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 7l1.2-2h4.6L15.5 7"/></svg></div>
         <p><button class="btn" id="pickBtn" type="button" data-i18n="pick">Wybierz zdjęcia</button></p>
@@ -96,17 +102,23 @@
       </div>
       <div class="progress" id="progress"><div class="bar"><i id="barFill"></i></div><div class="status-line" id="statusLine"></div></div>
       <ul class="file-list" id="fileList"></ul>
-      <div class="actions">
-        <button class="btn emerald" id="convertBtn" type="button" disabled data-i18n="convert">Konwertuj</button>
-        <button class="btn ghost" id="zipBtn" type="button" disabled data-i18n="zip">Pobierz ZIP</button>
-        <button class="btn ghost" id="clearBtn" type="button" data-i18n="clear">Wyczyść</button>
+          <div class="actions">
+            <button class="btn emerald" id="convertBtn" type="button" disabled data-i18n="convert">Konwertuj</button>
+            <button class="btn ghost" id="zipBtn" type="button" disabled data-i18n="zip">Pobierz ZIP</button>
+            <button class="btn ghost" id="clearBtn" type="button" data-i18n="clear">Wyczyść</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="how">
-      <h2 class="section-heading" data-i18n="how">Jak to działa</h2>
-      <p class="service-intro">Plik HEIC, silnik WASM i wynik JPG — wszystko na Twoim urządzeniu.</p>
-      <p>Konwersja przebiega lokalnie: plik HEIC/HEIF trafia do dekodera libheif skompilowanego do WebAssembly, a wynik jest renderowany na canvas i zapisany jako JPG. Żadnego backendu, żadnego API, żadnego uploadu.</p>
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading" data-i18n="how">Jak to działa</h2>
+          <p class="service-intro">Plik HEIC, silnik WASM i wynik JPG — wszystko na Twoim urządzeniu.</p>
+          <p>Konwersja przebiega lokalnie: plik HEIC/HEIF trafia do dekodera libheif skompilowanego do WebAssembly, a wynik jest renderowany na canvas i zapisany jako JPG. Żadnego backendu, żadnego API, żadnego uploadu.</p>
+        </div>
+        <div>
       <div class="diagram">
         <div class="diagram-h">
         <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data flow animation">
@@ -189,7 +201,7 @@
             <path d="M 530 100 l 2.5 2.5 4.5 -5" stroke="#34d399" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
             <text x="534" y="140" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2" data-i18n-svg="c3t">WYNIK JPG</text>
             <text x="534" y="156" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="700">Gotowy · lokalnie</text>
-            <text x="534" y="176" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG ✓</text>
+            <text x="534" y="176" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG OK</text>
           </g>
 
           <!-- traveling pulses -->
@@ -289,7 +301,7 @@
             <text x="236" y="286" text-anchor="middle" fill="#a1a1aa" font-size="10" font-weight="700">upload: 0 B</text>
             <text x="236" y="390" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" data-i18n-svg="c3t">WYNIK JPG</text>
             <text x="236" y="408" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="700">Gotowy · lokalnie</text>
-            <text x="236" y="426" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG ✓</text>
+            <text x="236" y="426" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG OK</text>
           </g>
 
           <g class="a-out1v anim-hide" filter="url(#glow)">
@@ -322,6 +334,8 @@
           </g>
         </svg>
         </div>
+        </div>
+      </div>
       </div>
       <ol class="how-steps">
         <li><strong>01 — Plik HEIC</strong><p>Podaj zdjęcie HEIC/HEIF z telefonu. Obsługujemy wiele plików naraz.</p></li>
@@ -332,10 +346,16 @@
     </section>
 
     <section id="privacy">
-      <h2 class="section-heading">Prywatność, zero upload</h2>
-      <p class="service-intro">Plik HEIC i wynik JPG nigdy nie opuszczają Twojego urządzenia.</p>
-      <p>Zero upload: wymusza to polityka CSP (<code>connect-src 'none'</code>). Lokalny <code>eval</code> Workera dekodera jest dopuszczony (<code>script-src 'unsafe-eval'</code>, <code>worker-src blob:</code>) — eval nie potrafi wysyłać danych do sieci.</p>
-      <p>Biblioteki (<code>vendor/</code>) są hostowane lokalnie: heic2any (libheif WASM) + JSZip. Żadnych CDN-ów w runtime, żadnych fontów z zewnętrznych serwisów.</p>
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading">Prywatność, zero upload</h2>
+          <p class="service-intro">Plik HEIC i wynik JPG nigdy nie opuszczają Twojego urządzenia.</p>
+        </div>
+        <div>
+          <p>Zero upload: wymusza to polityka CSP (<code>connect-src 'none'</code>). Lokalny <code>eval</code> Workera dekodera jest dopuszczony (<code>script-src 'unsafe-eval'</code>, <code>worker-src blob:</code>) — eval nie potrafi wysyłać danych do sieci.</p>
+          <p>Biblioteki (<code>vendor/</code>) są hostowane lokalnie: heic2any (libheif WASM) + JSZip. Żadnych CDN-ów w runtime, żadnych fontów z zewnętrznych serwisów.</p>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq">
@@ -367,9 +387,9 @@
   <footer class="site-footer">
     <p class="site-footer__brand">ENCLAV</p>
     <p class="site-footer__tagline">Imagine what's next.</p>
-    <p class="site-footer__tagline">Technology. Creativity. New possibilities.</p>
+    <p class="site-footer__tagline">Technologia. Kreatywność. Nowe możliwości.</p>
     <p class="site-footer__ventures"><a href="/pl/create">CREATE</a> · <a href="/pl/copy">COPY</a> · <a href="/pl/private-ai">PRIVATE AI</a> · ADAPTIVE APPSEC · <a href="/pl/packly">PACKLY</a></p>
-    <p class="site-footer__legal">© 2026 ENCLAV. Based in Warsaw, Poland. Working with clients across Europe. <a href="mailto:hello@enclav.cc">hello@enclav.cc</a> · We reply within 24h</p>
+    <p class="site-footer__legal">© 2026 ENCLAV. Warszawa, Polska. Współpracujemy z klientami w całej Europie. <a href="mailto:hello@enclav.cc">hello@enclav.cc</a> · Odpowiadamy w ciągu 24h</p>
   </footer>
 </body>
 </html>

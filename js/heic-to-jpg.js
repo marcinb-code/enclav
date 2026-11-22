@@ -1,4 +1,4 @@
-/* ENCLAV — HEIC➜JPG converter engine (migracja z https://heic2jpg-dys.pages.dev/ — source: .27:/root/heic2jpg-repo).
+/* ENCLAV — HEIC→JPG converter engine (migracja z https://heic2jpg-dys.pages.dev/ — source: .27:/root/heic2jpg-repo).
    Zgodny z oryginalnym app.js: FileReader + heic2any (libheif WASM) + canvas + JSZip — zero kodu sieciowego.
    CSP strony: connect-src 'none' — engine nie wykonuje żadnego requestu poza własnymi zasobami.
    Migracja ENCLAV: locale PL/EN to oddzielne podstrony /pl/heic-to-jpg/ i /en/heic-to-jpg/ (shared engine). */
@@ -19,7 +19,8 @@
       proof_lead: "Cały proces — plik, silnik WASM i wynik — dzieje się wewnątrz Twojego urządzenia. Chmura jest na zewnątrz i nie dostaje nic.",
       live: "na żywo: 0 requestów • 0 bajtów — wszystko na Twoim urządzeniu",
       net_note: "licznik od załadowania strony — konwersja nie dodaje żadnych",
-      conv_title: "Konwerter",
+      conv_title: "Darmowy konwerter HEIC na JPG",
+      conv_intro: "Darmowy konwerter HEIC na JPG — pliki HEIC i HEIF z telefonu są dekodowane do JPG lokalnie w przeglądarce przez lokalny silnik WebAssembly, a Twoje zdjęcia nie opuszczają urządzenia.",
       pick: "Wybierz zdjęcia",
       drop: "…albo upuść pliki .heic / .heif tutaj (wiele naraz)",
       quality: "Jakość JPG",
@@ -53,7 +54,7 @@
       finale2: "0 requestów • 0 bajtów",
       st_wait: "czeka",
       st_working: "konwersja…",
-      st_ok: "gotowy ✓",
+      st_ok: "gotowy",
       st_err: "błąd",
       err_type: "to nie wygląda na HEIC/HEIF",
       err_decode: "nie udało się zdekodować",
@@ -65,7 +66,7 @@
       jpg_suffix: ".jpg",
       how: "Jak to działa",
       how_pl: "Jak to działa",
-      cta_convert: "Konwertuj HEIC na JPG",
+      cta_convert: "Konwertuj",
       cta_how: "Jak to działa"
     },
     en: {
@@ -81,7 +82,8 @@
       proof_lead: "The whole pipeline — file, WASM engine and result — happens inside your device. The cloud is outside and gets nothing.",
       live: "live: 0 requests • 0 bytes — everything on your device",
       net_note: "counter since page load — conversion adds none",
-      conv_title: "Converter",
+      conv_title: "Free HEIC to JPG Converter",
+      conv_intro: "The HEIC to JPG converter runs entirely in your browser — HEIC/HEIF photos are decoded to JPG by the local WebAssembly engine, and your files never leave your device.",
       pick: "Choose photos",
       drop: "…or drop .heic / .heif files here (batch welcome)",
       quality: "JPG quality",
@@ -115,7 +117,7 @@
       finale2: "0 requests • 0 bytes",
       st_wait: "queued",
       st_working: "converting…",
-      st_ok: "ready ✓",
+      st_ok: "ready",
       st_err: "error",
       err_type: "doesn't look like HEIC/HEIF",
       err_decode: "failed to decode",
@@ -126,7 +128,7 @@
       zip_name: "heic-jpg.zip",
       jpg_suffix: ".jpg",
       how: "How it works",
-      cta_convert: "Convert HEIC to JPG"
+      cta_convert: "Convert"
     }
   };
 

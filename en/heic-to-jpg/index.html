@@ -56,7 +56,7 @@
           <p data-i18n="tool_hero_b">Convert HEIC and HEIF images to JPG directly in your browser. No uploads, no account, no subscription.</p>
         </div>
         <div class="hero__actions">
-          <a class="button button--emerald" href="#converter" data-i18n="cta_convert">Convert HEIC to JPG</a>
+          <a class="button button--emerald" href="#converter" data-i18n="cta_convert">Convert</a>
           <a class="button" href="#how" data-i18n="how">How it works</a>
         </div>
       </div>
@@ -69,44 +69,56 @@
 
   <main>
     <section id="converter" class="converter">
-      <h2 data-i18n="conv_title">Converter</h2>
-      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drop files">
-        <div><svg class="ic ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 7l1.2-2h4.6L15.5 7"/></svg></div>
-        <p><button class="btn" id="pickBtn" type="button" data-i18n="pick">Choose photos</button></p>
-        <p data-i18n="drop">…or drop .heic / .heif files here (batch welcome)</p>
-        <input id="fileInput" type="file" accept=".heic,.heif,image/heic,image/heif" multiple hidden>
-      </div>
-      <div class="settings">
-        <div class="setting">
-          <label for="quality"><span data-i18n="quality">JPG quality</span>: <span id="qualityVal">92</span></label>
-          <input type="range" id="quality" min="60" max="100" value="92">
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading" data-i18n="conv_title">Free HEIC to JPG Converter</h2>
+          <p class="service-intro" data-i18n="conv_intro">The HEIC to JPG converter runs entirely in your browser — HEIC/HEIF photos are decoded to JPG by the local WebAssembly engine, and your files never leave your device.</p>
+          <p>Free, no account, no limits. Batch conversion and ZIP export are built in.</p>
         </div>
-        <div class="setting">
-          <label for="maxside"><span data-i18n="maxside">Max long edge</span></label>
-          <select id="maxside">
-            <option value="0" data-i18n="ms_orig">Original (no scaling)</option>
-            <option value="2048">2048 px</option>
-            <option value="1024">1024 px</option>
-          </select>
+        <div>
+          <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Drop files">
+            <div><svg class="ic ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 7l1.2-2h4.6L15.5 7"/></svg></div>
+            <p><button class="btn" id="pickBtn" type="button" data-i18n="pick">Choose photos</button></p>
+            <p data-i18n="drop">…or drop .heic / .heif files here (batch welcome)</p>
+            <input id="fileInput" type="file" accept=".heic,.heif,image/heic,image/heif" multiple hidden>
+          </div>
+          <div class="settings">
+            <div class="setting">
+              <label for="quality"><span data-i18n="quality">JPG quality</span>: <span id="qualityVal">92</span></label>
+              <input type="range" id="quality" min="60" max="100" value="92">
+            </div>
+            <div class="setting">
+              <label for="maxside"><span data-i18n="maxside">Max long edge</span></label>
+              <select id="maxside">
+                <option value="0" data-i18n="ms_orig">Original (no scaling)</option>
+                <option value="2048">2048 px</option>
+                <option value="1024">1024 px</option>
+              </select>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="asZip" checked>
+              <label for="asZip" data-i18n="aszip">Pack results into ZIP (2+ files)</label>
+            </div>
+          </div>
+          <div class="progress" id="progress"><div class="bar"><i id="barFill"></i></div><div class="status-line" id="statusLine"></div></div>
+          <ul class="file-list" id="fileList"></ul>
+          <div class="actions">
+            <button class="btn emerald" id="convertBtn" type="button" disabled data-i18n="convert">Convert</button>
+            <button class="btn ghost" id="zipBtn" type="button" disabled data-i18n="zip">Download ZIP</button>
+            <button class="btn ghost" id="clearBtn" type="button" data-i18n="clear">Clear</button>
+          </div>
         </div>
-        <div class="check">
-          <input type="checkbox" id="asZip" checked>
-          <label for="asZip" data-i18n="aszip">Pack results into ZIP (2+ files)</label>
-        </div>
-      </div>
-      <div class="progress" id="progress"><div class="bar"><i id="barFill"></i></div><div class="status-line" id="statusLine"></div></div>
-      <ul class="file-list" id="fileList"></ul>
-      <div class="actions">
-        <button class="btn emerald" id="convertBtn" type="button" disabled data-i18n="convert">Convert</button>
-        <button class="btn ghost" id="zipBtn" type="button" disabled data-i18n="zip">Download ZIP</button>
-        <button class="btn ghost" id="clearBtn" type="button" data-i18n="clear">Clear</button>
       </div>
     </section>
 
     <section id="how">
-      <h2 class="section-heading">How it works</h2>
-      <p class="service-intro">The HEIC file, the WASM engine and the JPG result — all on your device.</p>
-      <p>The conversion runs locally: the HEIC/HEIF file goes to the libheif decoder compiled to WebAssembly, and the result is rendered on canvas and saved as JPG. No backend, no API, no upload.</p>
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading">How it works</h2>
+          <p class="service-intro">The HEIC file, the WASM engine and the JPG result — all on your device.</p>
+          <p>The conversion runs locally: the HEIC/HEIF file goes to the libheif decoder compiled to WebAssembly, and the result is rendered on canvas and saved as JPG. No backend, no API, no upload.</p>
+        </div>
+        <div>
       <div class="diagram">
         <div class="diagram-h">
         <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data flow animation">
@@ -189,7 +201,7 @@
             <path d="M 530 100 l 2.5 2.5 4.5 -5" stroke="#34d399" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
             <text x="534" y="140" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" letter-spacing="-0.2" data-i18n-svg="c3t">JPG RESULT</text>
             <text x="534" y="156" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="700">Ready · on device</text>
-            <text x="534" y="176" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG ✓</text>
+            <text x="534" y="176" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG OK</text>
           </g>
 
           <!-- traveling pulses -->
@@ -289,7 +301,7 @@
             <text x="236" y="286" text-anchor="middle" fill="#a1a1aa" font-size="10" font-weight="700">upload: 0 B</text>
             <text x="236" y="390" text-anchor="middle" fill="#fafafa" font-size="12.5" font-weight="700" data-i18n-svg="c3t">JPG RESULT</text>
             <text x="236" y="408" text-anchor="middle" fill="#71717a" font-size="10.5" font-weight="700">Ready · on device</text>
-            <text x="236" y="426" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG ✓</text>
+            <text x="236" y="426" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">IMG_1234.JPG OK</text>
           </g>
 
           <g class="a-out1v anim-hide" filter="url(#glow)">
@@ -322,6 +334,8 @@
           </g>
         </svg>
         </div>
+        </div>
+      </div>
       </div>
       <ol class="how-steps">
         <li><strong>01 — HEIC File</strong><p>Provide an HEIC/HEIF photo from your phone. Multiple files supported.</p></li>
@@ -332,10 +346,16 @@
     </section>
 
     <section id="privacy">
-      <h2 class="section-heading">Privacy, zero upload</h2>
-      <p class="service-intro">The HEIC file and the JPG result never leave your device.</p>
-      <p>Zero upload is enforced by the CSP (<code>connect-src 'none'</code>). Local <code>eval</code> of the decoder Worker is allowed (<code>script-src 'unsafe-eval'</code>, <code>worker-src blob:</code>) — eval cannot send data to the network.</p>
-      <p>Vendor libraries (<code>vendor/</code>) are hosted locally: heic2any (libheif WASM) + JSZip. No CDNs at runtime, no external fonts.</p>
+      <div class="service-layout">
+        <div>
+          <h2 class="section-heading">Privacy, zero upload</h2>
+          <p class="service-intro">The HEIC file and the JPG result never leave your device.</p>
+        </div>
+        <div>
+          <p>Zero upload is enforced by the CSP (<code>connect-src 'none'</code>). Local <code>eval</code> of the decoder Worker is allowed (<code>script-src 'unsafe-eval'</code>, <code>worker-src blob:</code>) — eval cannot send data to the network.</p>
+          <p>Vendor libraries (<code>vendor/</code>) are hosted locally: heic2any (libheif WASM) + JSZip. No CDNs at runtime, no external fonts.</p>
+        </div>
+      </div>
     </section>
 
     <section id="faq">
