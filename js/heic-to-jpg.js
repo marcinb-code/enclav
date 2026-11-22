@@ -61,7 +61,7 @@
       st_working: "konwersja…",
       st_ok: "gotowy",
       st_err: "błąd",
-      err_type: "to nie wygląda na HEIC/HEIF",
+      err_type: "nieobsługiwany lub uszkodzony format obrazu",
       err_decode: "nie udało się zdekodować",
       status_idle: "Dodaj pliki i kliknij Konwertuj.",
       status_run: "Konwersja {done}/{total}…",
@@ -129,7 +129,7 @@
       st_working: "converting…",
       st_ok: "ready",
       st_err: "error",
-      err_type: "doesn't look like HEIC/HEIF",
+      err_type: "unsupported or damaged image format",
       err_decode: "failed to decode",
       status_idle: "Add files and hit Convert.",
       status_run: "Converting {done}/{total}…",
@@ -234,10 +234,39 @@
 
   function setStatus(s) { if (statusLine) statusLine.textContent = s; }
 
-  function isHeicName(name) { return /\.(heic|heif)$/i.test(name || ""); }
+  /*
+   * Rozpoznawanie po sygnaturze, nie po nazwie/MIME. ISO-BMFF ftyp zawiera
+   * markę główną oraz listę marek kompatybilnych — sprawdzamy wszystkie.
+   */
+  function sniffImageFormat(file) {
+    return file.slice(0, 65536).arrayBuffer().then(function (buffer) {
+      var bytes = new Uint8Array(buffer);
+      if (bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) {
+        return "jpeg";
+      }
+      var heifBrands = { heic: 1, heix: 1, hevc: 1, hevx: 1, mif1: 1, msf1: 1 };
+      // ftyp jest zwykle pierwszym boxem; skan ograniczonego nagłówka pozwala
+      // obsłużyć pliki z poprzedzającym boxem oraz różne marki kompatybilności.
+      for (var pos = 0; pos + 16 <= bytes.length; pos++) {
+        if (bytes[pos + 4] !== 0x66 || bytes[pos + 5] !== 0x74 ||
+            bytes[pos + 6] !== 0x79 || bytes[pos + 7] !== 0x70) continue;
+        var size = (bytes[pos] * 0x1000000) + (bytes[pos + 1] << 16) +
+          (bytes[pos + 2] << 8) + bytes[pos + 3];
+        var end = size === 1
+          ? bytes.length
+          : Math.min(bytes.length, pos + (size >= 16 ? size : bytes.length - pos));
+        var brandStart = pos + 8 + (size === 1 ? 8 : 0);
+        for (var brandPos = brandStart; brandPos + 4 <= end; brandPos += 4) {
+          var brand = String.fromCharCode(bytes[brandPos], bytes[brandPos + 1], bytes[brandPos + 2], bytes[brandPos + 3]);
+          if (heifBrands[brand]) return "heif";
+        }
+      }
+      return "unsupported";
+    });
+  }
 
   function jpgName(name, idx) {
-    var base = String(name || "photo").replace(/\.(heic|heif)$/i, "");
+    var base = String(name || "photo").replace(/\.(heic|heif|jpe?g)$/i, "");
     if (idx > 0) base += "-" + (idx + 1);
     return base + t("jpg_suffix");
   }
@@ -273,27 +302,56 @@
     fileList.innerHTML = html;
   }
 
-  function decodeOne(file, q) {
+  function decodeOne(file, q, format) {
+    if (format === "jpeg") return Promise.resolve([file]);
     return window.heic2any({ blob: file, toType: "image/jpeg", quality: q })
       .then(function (out) { return Array.isArray(out) ? out : [out]; });
   }
 
-  function maybeDownscale(blob, maxSide, q) {
-    if (!maxSide || maxSide <= 0) return Promise.resolve(blob);
-    if (!window.createImageBitmap) return Promise.resolve(blob);
-    return window.createImageBitmap(blob).then(function (bmp) {
-      var w = bmp.width, h = bmp.height;
+  function maybeDownscale(blob, maxSide, q, forceEncode) {
+    if (!forceEncode && (!maxSide || maxSide <= 0)) return Promise.resolve(blob);
+    function encodeFromImage(image, width, height, close) {
+      var w = width, h = height;
       var m = Math.max(w, h);
-      if (m <= maxSide) { if (bmp.close) bmp.close(); return blob; }
-      var s = maxSide / m;
-      var cw = Math.round(w * s), ch = Math.round(h * s);
+      if (maxSide > 0 && m > maxSide) {
+        var scale = maxSide / m;
+        w = Math.round(w * scale); h = Math.round(h * scale);
+      }
+      if (!forceEncode && w === width && h === height) {
+        if (close) close();
+        return Promise.resolve(blob);
+      }
       var cv = document.createElement("canvas");
-      cv.width = cw; cv.height = ch;
+      cv.width = w; cv.height = h;
       var ctx = cv.getContext("2d");
-      ctx.drawImage(bmp, 0, 0, cw, ch);
-      if (bmp.close) bmp.close();
-      return new Promise(function (res) { cv.toBlob(function (b) { res(b || blob); }, "image/jpeg", q); });
-    }).catch(function () { return blob; });
+      ctx.drawImage(image, 0, 0, w, h);
+      if (close) close();
+      return new Promise(function (res) {
+        cv.toBlob(function (b) { res(b || (forceEncode ? null : blob)); }, "image/jpeg", q);
+      });
+    }
+    if (window.createImageBitmap) return window.createImageBitmap(blob).then(function (bmp) {
+      var w = bmp.width, h = bmp.height;
+      return encodeFromImage(bmp, w, h, bmp.close ? function () { bmp.close(); } : null);
+    }).catch(function () {
+      if (!forceEncode) return blob;
+      return imageFallback(blob, encodeFromImage);
+    });
+    if (!forceEncode) return Promise.resolve(blob);
+    return imageFallback(blob, encodeFromImage);
+  }
+
+  function imageFallback(blob, encodeFromImage) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(blob);
+      var image = new Image();
+      image.onload = function () {
+        encodeFromImage(image, image.naturalWidth, image.naturalHeight).then(resolve, reject)
+          .then(function () { URL.revokeObjectURL(url); }, function () { URL.revokeObjectURL(url); });
+      };
+      image.onerror = function () { URL.revokeObjectURL(url); reject(new Error("Image decode failed")); };
+      image.src = url;
+    });
   }
 
   function downloadBlob(blob, name) {
@@ -310,10 +368,6 @@
   function runConvert() {
     if (state.running || state.entries.length === 0) {
       if (state.entries.length === 0) setStatus(t("need_files"));
-      return;
-    }
-    if (typeof window.heic2any !== "function") {
-      setStatus(t("err_decode") + " (lib)");
       return;
     }
     state.running = true;
@@ -345,18 +399,21 @@
       e.status = "run"; e.msg = ""; renderList();
       setStatus(fill(t("status_run"), { done: done + 1, total: total }));
       (function (entry) {
-        if (!isHeicName(entry.file.name)) {
-          entry.status = "err"; entry.msg = t("err_type");
-          errs++; done++;
-          barFill.style.width = Math.round((done / total) * 100) + "%";
-          renderList(); step(i + 1);
-          return;
-        }
-        decodeOne(entry.file, q).then(function (blobs) {
+        sniffImageFormat(entry.file).then(function (format) {
+          if (format === "unsupported") {
+            entry.status = "err"; entry.msg = t("err_type"); errs++;
+            return;
+          }
+          if (format === "heif" && typeof window.heic2any !== "function") {
+            entry.status = "err"; entry.msg = t("err_decode") + " (lib)"; errs++;
+            return;
+          }
+          return decodeOne(entry.file, q, format).then(function (blobs) {
           var chain = Promise.resolve();
           blobs.forEach(function (b, bi) {
             chain = chain.then(function () {
-              return maybeDownscale(b, ms, q).then(function (finalBlob) {
+              return maybeDownscale(b, ms, q, format === "jpeg").then(function (finalBlob) {
+                if (!finalBlob) throw new Error("JPEG encoding failed");
                 var outName = blobs.length > 1 ? jpgName(entry.file.name, bi) : jpgName(entry.file.name, 0);
                 var url = URL.createObjectURL(finalBlob);
                 state.results.push({ name: outName, blob: finalBlob });
@@ -369,8 +426,10 @@
           }).catch(function () {
             entry.status = "err"; entry.msg = t("err_decode"); errs++;
           });
+          });
         }).catch(function () {
           entry.status = "err"; entry.msg = t("err_decode");
+          errs++;
         }).then(function () {
           done++;
           barFill.style.width = Math.round((done / total) * 100) + "%";
