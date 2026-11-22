@@ -141,6 +141,7 @@ p { max-width: 68ch; text-wrap: pretty; }
   font-weight: 700;
   letter-spacing: .08em;
   line-height: 1;
+  text-decoration: none;
 }
 .site-nav__tools[aria-current="page"] { color: var(--accent); text-decoration: none; }
 
@@ -590,6 +591,40 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   text-decoration: underline;
   text-decoration-thickness: 0.15em;
   text-underline-offset: 0.45em;
+}
+
+/* Hover/focus: na TOOLS akcentujemy samą etykietę, nie plakietkę FREE.
+   Aktywna pozycja zachowuje emerald i podkreślenie; nieaktywne dostają kolor
+   wyłącznie podczas wskazania kursorem lub fokusu klawiaturą. */
+.direction--canvas-bg .site-nav a:not([aria-current="page"]):not(.site-nav__tools):hover,
+.direction--canvas-bg .site-nav a:not([aria-current="page"]):not(.site-nav__tools):focus-visible {
+  color: #34d399;
+}
+.direction--canvas-bg .site-nav a.site-nav__tools:not([aria-current="page"]):hover .site-nav__tools-label,
+.direction--canvas-bg .site-nav a.site-nav__tools:not([aria-current="page"]):focus-visible .site-nav__tools-label {
+  color: #34d399;
+}
+.direction--canvas-bg .site-nav .badge-free,
+.direction--canvas-bg .mobile-nav .badge-free {
+  color: #34d399;
+}
+.direction--canvas-bg .site-nav .nav-soon,
+.direction--canvas-bg .mobile-nav .nav-soon {
+  color: #85858d;
+  opacity: .46;
+}
+.direction--canvas-bg .site-footer__ventures .footer-soon {
+  color: #85858d;
+  opacity: .48;
+}
+.direction--canvas-bg .mobile-nav__links a.site-nav__tools[aria-current="page"] {
+  color: #34d399;
+  text-decoration: none;
+}
+.direction--canvas-bg .mobile-nav__links a.site-nav__tools[aria-current="page"] .site-nav__tools-label {
+  text-decoration: underline;
+  text-decoration-thickness: .15em;
+  text-underline-offset: .45em;
 }
 
 /* ── Stopka: logo tej samej wielkości co na górze, emerald ── */
