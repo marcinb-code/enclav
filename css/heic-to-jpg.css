@@ -1,0 +1,216 @@
+/* ENCLAV — HEIC➜JPG tool module (migracja z https://heic2jpg-dys.pages.dev/ — source: .27:/root/heic2jpg-repo).
+   Oryginalny konwerter (heic2any / libheif WASM + JSZip) osadzony w układzie design systemu ENCLAV
+   (enclav.css + tokeny ENCLAV). Plik źródłowy oryginału (/root/heic2jpg-repo/style.css) NIE jest
+   kopiowany — reguły typograficzne i kolorystyczne loga HEIC➜JPG pochodzą wprost z oryginału
+   (font-family: 'Borel', font-weight: 400, font-size, letter-spacing, kolory), zaadaptowane do
+   warstwy hero tej podstrony. */
+
+/* Tokeny modułu — oryginalne nazwy zmienne (--panel, --border, --accent, --blue, --muted,
+   --danger) mapowane na tokeny design systemu ENCLAV. */
+.direction--heic-to-jpg {
+  --panel: var(--surface);
+  --border: var(--line);
+  --bg: var(--ground);
+  --accent: #34d399;
+  --accent-dim: rgba(52, 211, 153, 0.12);
+  --blue: #2563eb;
+  --blue-soft: #38bdf8;
+  --ink: var(--ink);
+  --muted: var(--muted);
+  --danger: #f87171;
+  --radius: 16px;
+}
+
+/* Oryginalne @font-face z oryginału (style.css /root/heic2jpg-repo) — self-hosted font
+   'Borel' (latin + symbols). Runtime: font-src 'self' z CSP pozwala na /fonts/*.woff2. */
+@font-face {
+  font-family: 'Borel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/borel-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Borel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/borel-symbols.woff2') format('woff2');
+  unicode-range: U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3;
+}
+
+/* ---------- HERO — narzędzie HEIC➜JPG ---------- */
+
+/* Kategoria TOOLS + oryginalny logo HEIC➜JPG (heic➜jpg) + hasło narzędzia. */
+.direction--heic-to-jpg .hero { text-align: center; }
+.direction--heic-to-jpg .hero__eyebrow { display: block; margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; font-weight: 650; }
+.direction--heic-to-jpg .hero__title { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: none; margin: 0; font-size: var(--display); font-weight: 700; line-height: 0.86; letter-spacing: -0.055em; }
+.direction--heic-to-jpg .hero__title span { display: block; }
+.direction--heic-to-jpg .hero__title span:first-child { color: #fafafa; }
+.direction--heic-to-jpg .hero__title span:last-child { color: var(--accent); }
+.direction--heic-to-jpg .hero__support { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 1.25rem 2rem; margin-top: clamp(1.75rem, 4vw, 3.25rem); }
+.direction--heic-to-jpg .hero__support > div { max-width: 52ch; }
+.direction--heic-to-jpg .hero__support p { max-width: 44ch; margin: 0; color: var(--accent-ink); font-size: var(--lead); line-height: 1.35; }
+.direction--heic-to-jpg .hero__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.5rem; }
+
+/* Oryginalny logo HEIC➜JPG — font 'Borel' (self-hosted, /fonts/borel-*.woff2), wagą 400,
+   stylem normal, kolorystyką z oryginału (.logo-heic/.logo-jpg = var(--accent) emerald,
+   strzałka = #fafafa z oryginału). */
+.direction--heic-to-jpg .hero__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1em;
+  margin: 0 auto 1.75rem;
+  font-family: 'Borel', ui-sans-serif, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: clamp(4rem, 12vw, 8rem);
+}
+.direction--heic-to-jpg .hero__logo .logo-heic,
+.direction--heic-to-jpg .hero__logo .logo-jpg { color: var(--accent); }
+.direction--heic-to-jpg .hero__logo .logo-arrow { color: #fafafa; font-size: 1.1em; line-height: 1; }
+@media (min-width: 641px) { .direction--heic-to-jpg .hero__logo { padding-top: 0.38em; } }
+
+/* Pasek prywatności / trik WOM (z oryginału). */
+.direction--heic-to-jpg .hero .privacy-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(52, 211, 153, 0.1); color: var(--accent); border: 1px solid rgba(52, 211, 153, 0.4); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; }
+.direction--heic-to-jpg .hero .proof-hint { color: var(--muted); font-size: 13px; margin-top: 10px; }
+.direction--heic-to-jpg .hero .proof-hint code { background: var(--border); padding: 1px 6px; border-radius: 6px; }
+
+/* Status live + monitor network (oryginał). */
+.direction--heic-to-jpg .live-status { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.55rem; font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--accent); font-weight: 700; }
+.direction--heic-to-jpg .live-status .dotp { width: 6px; height: 6px; border-radius: 9999px; background: var(--accent); box-shadow: 0 0 8px rgba(52, 211, 153, 0.8); animation: enclav-heic-dot-pulse 1.6s ease-in-out infinite; }
+@keyframes enclav-heic-dot-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
+.direction--heic-to-jpg .net-monitor { margin-top: 12px; font-size: 13px; background: var(--bg); color: #a7f3d0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.direction--heic-to-jpg .net-monitor b { color: #fff; }
+
+/* ---------- SEKCJA: konwerter (oryginalny silnik, układ ENCLAV) ---------- */
+.direction--heic-to-jpg .converter { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.direction--heic-to-jpg .converter h2 { margin: 0 0 12px; font-size: 20px; letter-spacing: -0.2px; }
+.direction--heic-to-jpg .dropzone { border: 2px dashed var(--blue); border-radius: var(--radius); background: rgba(37, 99, 235, 0.08); padding: 34px 16px; text-align: center; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.direction--heic-to-jpg .dropzone:hover, .direction--heic-to-jpg .dropzone.over { background: rgba(37, 99, 235, 0.16); border-color: var(--blue-soft); }
+.direction--heic-to-jpg .dropzone p { margin: 6px 0; color: var(--muted); }
+.direction--heic-to-jpg .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.75rem 1.25rem; border: 0; border-radius: 12px; cursor: pointer; font-weight: 650; font-size: 1rem; background: var(--ground); color: var(--ink); }
+.direction--heic-to-jpg .btn:hover { filter: brightness(1.15); }
+.direction--heic-to-jpg .btn.emerald { background: var(--accent); color: var(--accent-ink); }
+.direction--heic-to-jpg .btn.ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.direction--heic-to-jpg .btn:disabled { opacity: 0.5; cursor: default; }
+.direction--heic-to-jpg .settings { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+@media (min-width: 640px) { .direction--heic-to-jpg .settings { grid-template-columns: 1fr 1fr; } }
+.direction--heic-to-jpg .setting label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+.direction--heic-to-jpg .setting input[type="range"] { width: 100%; accent-color: var(--accent); }
+.direction--heic-to-jpg .setting select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px; background: var(--bg); color: var(--ink); }
+.direction--heic-to-jpg .check { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.direction--heic-to-jpg .check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.direction--heic-to-jpg .progress { margin-top: 14px; display: none; }
+.direction--heic-to-jpg .progress.show { display: block; }
+.direction--heic-to-jpg .bar { height: 12px; background: var(--surface); border-radius: 999px; overflow: hidden; }
+.direction--heic-to-jpg .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--blue), var(--accent)); transition: width 0.2s; }
+.direction--heic-to-jpg .status-line { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.direction--heic-to-jpg .file-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 8px; }
+.direction--heic-to-jpg .file-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; border: 1px solid var(--border); border-radius: 12px; padding: 8px 10px; background: #101014; }
+.direction--heic-to-jpg .file-list img.thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; background: var(--border); }
+.direction--heic-to-jpg .file-list .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.direction--heic-to-jpg .badge { font-size: 12px; font-weight: 800; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.direction--heic-to-jpg .badge.ok { background: rgba(52, 211, 153, 0.12); color: var(--accent); }
+.direction--heic-to-jpg .badge.wait { background: var(--surface); color: var(--muted); }
+.direction--heic-to-jpg .badge.err { background: rgba(248, 113, 113, 0.12); color: var(--danger); }
+.direction--heic-to-jpg .dl { font-size: 13px; font-weight: 700; color: var(--blue-soft); white-space: nowrap; }
+.direction--heic-to-jpg .actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+
+/* ---------- SEKCJA: dlaczego / jak działa ---------- */
+.direction--heic-to-jpg .why { display: grid; gap: 10px; margin-top: 20px; }
+@media (min-width: 640px) { .direction--heic-to-jpg .why { grid-template-columns: 1fr 1fr 1fr; } }
+.direction--heic-to-jpg .why .tile { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; font-size: 14px; }
+.direction--heic-to-jpg .why .tile b { display: block; margin-bottom: 6px; font-size: 15px; }
+.direction--heic-to-jpg .why .tile p { margin: 0; color: var(--muted); }
+
+/* Diagram przepływu (oryginał, z animacjami 24s). */
+.direction--heic-to-jpg .diagram { width: 100%; overflow: hidden; }
+.direction--heic-to-jpg .diagram svg { width: 100%; height: auto; display: block; }
+.direction--heic-to-jpg .diagram svg text { font-family: ui-sans-serif, system-ui, sans-serif; }
+.direction--heic-to-jpg .diagram-v { display: none; }
+@media (max-width: 640px) { .direction--heic-to-jpg .diagram-h { display: none; } .direction--heic-to-jpg .diagram-v { display: block; } }
+
+/* Animacje diagramu (identyczne parametry co oryginał). */
+@keyframes enclav-heic-doc-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+@keyframes enclav-heic-ring-a { 0% { opacity: 0; } 1% { opacity: 1; } 11% { opacity: 1; } 13%, 100% { opacity: 0; } }
+@keyframes enclav-heic-ring-b { 0%, 14% { opacity: 0; } 16% { opacity: 1; } 28% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes enclav-heic-ring-c { 0%, 32% { opacity: 0; } 34% { opacity: 1; } 46% { opacity: 1; } 48%, 100% { opacity: 0; } }
+@keyframes enclav-heic-num-a { 0% { opacity: 0; } 1.5% { opacity: 0.6; } 11% { opacity: 0.6; } 13%, 100% { opacity: 0; } }
+@keyframes enclav-heic-num-b { 0%, 14% { opacity: 0; } 16% { opacity: 0.6; } 28% { opacity: 0.6; } 30%, 100% { opacity: 0; } }
+@keyframes enclav-heic-num-c { 0%, 32% { opacity: 0; } 34% { opacity: 0.6; } 46% { opacity: 0.6; } 48%, 100% { opacity: 0; } }
+@keyframes enclav-heic-out-a { 0%, 3% { opacity: 0; transform: translateX(0); } 4% { opacity: 1; transform: translateX(0); } 11% { opacity: 1; transform: translateX(40px); } 13%, 100% { opacity: 0; transform: translateX(40px); } }
+@keyframes enclav-heic-out-b { 0%, 20% { opacity: 0; transform: translateX(0); } 21% { opacity: 1; transform: translateX(0); } 28% { opacity: 1; transform: translateX(40px); } 30%, 100% { opacity: 0; transform: translateX(40px); } }
+@keyframes enclav-heic-out-av { 0%, 3% { opacity: 0; transform: translateY(0); } 4% { opacity: 1; transform: translateY(0); } 11% { opacity: 1; transform: translateY(44px); } 13%, 100% { opacity: 0; transform: translateY(44px); } }
+@keyframes enclav-heic-out-bv { 0%, 20% { opacity: 0; transform: translateY(0); } 21% { opacity: 1; transform: translateY(0); } 28% { opacity: 1; transform: translateY(44px); } 30%, 100% { opacity: 0; transform: translateY(44px); } }
+@keyframes enclav-heic-dead { 0%, 49% { opacity: 0; transform: translateX(0); } 50% { opacity: 0.9; transform: translateX(0); } 53% { opacity: 0.9; transform: translateX(28px); } 54%, 100% { opacity: 0; transform: translateX(28px); } }
+@keyframes enclav-heic-deadv { 0%, 49% { opacity: 0; transform: translateY(0); } 50% { opacity: 0.9; transform: translateY(0); } 53% { opacity: 0.9; transform: translateY(30px); } 54%, 100% { opacity: 0; transform: translateY(30px); } }
+@keyframes enclav-heic-cards-dim { 0%, 54% { opacity: 1; } 58% { opacity: 0.22; } 84% { opacity: 0.22; } 88%, 100% { opacity: 1; } }
+@keyframes enclav-heic-finale-in { 0%, 56% { opacity: 0; } 60% { opacity: 1; } 84% { opacity: 1; } 88%, 100% { opacity: 0; } }
+@keyframes enclav-heic-rot-cw { to { transform: rotate(360deg); } }
+@keyframes enclav-heic-spin-slow { to { transform: rotate(360deg); } }
+.direction--heic-to-jpg .anim-doc { animation: enclav-heic-doc-breathe 2.8s ease-in-out infinite; }
+.direction--heic-to-jpg .a-ring1 { animation: enclav-heic-ring-a 24s linear infinite; }
+.direction--heic-to-jpg .a-ring2 { animation: enclav-heic-ring-b 24s linear infinite; }
+.direction--heic-to-jpg .a-ring3 { animation: enclav-heic-ring-c 24s linear infinite; }
+.direction--heic-to-jpg .a-num1 { animation: enclav-heic-num-a 24s linear infinite; }
+.direction--heic-to-jpg .a-num2 { animation: enclav-heic-num-b 24s linear infinite; }
+.direction--heic-to-jpg .a-num3 { animation: enclav-heic-num-c 24s linear infinite; }
+.direction--heic-to-jpg .a-out1 { animation: enclav-heic-out-a 24s linear infinite; }
+.direction--heic-to-jpg .a-out2 { animation: enclav-heic-out-b 24s linear infinite; }
+.direction--heic-to-jpg .a-out1v { animation: enclav-heic-out-av 24s linear infinite; }
+.direction--heic-to-jpg .a-out2v { animation: enclav-heic-out-bv 24s linear infinite; }
+.direction--heic-to-jpg .a-dead { animation: enclav-heic-dead 24s linear infinite; }
+.direction--heic-to-jpg .a-deadv { animation: enclav-heic-deadv 24s linear infinite; }
+.direction--heic-to-jpg .a-pcard { animation: enclav-heic-cards-dim 24s linear infinite; }
+.direction--heic-to-jpg .a-finale { animation: enclav-heic-finale-in 24s linear infinite; }
+.direction--heic-to-jpg .a-rot1 { animation: enclav-heic-rot-cw 2.2s linear infinite; transform-box: fill-box; transform-origin: center; }
+.direction--heic-to-jpg .a-rot2 { animation: enclav-heic-rot-cw 3.8s linear infinite; transform-box: fill-box; transform-origin: center; }
+.direction--heic-to-jpg .a-rot3 { animation: enclav-heic-rot-cw 5.4s linear infinite; transform-box: fill-box; transform-origin: center; }
+.direction--heic-to-jpg .a-spin { animation: enclav-heic-spin-slow 9s linear infinite; transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) {
+  .direction--heic-to-jpg .diagram * { animation: none !important; transition: none !important; }
+  .direction--heic-to-jpg .diagram .anim-hide { display: none; }
+}
+
+/* ---------- SEKCJA: FAQ / ograniczenia / wsparcie ---------- */
+.direction--heic-to-jpg .faq details { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+.direction--heic-to-jpg .faq details + details { margin-top: 10px; }
+.direction--heic-to-jpg .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.direction--heic-to-jpg .faq details p { margin: 10px 0 0; color: var(--muted); }
+
+/* Stopka narzędzia (globalny footer ENCLAV wykorzystywany z modułu). */
+
+@media (max-width: 640px) {
+  .direction--heic-to-jpg .brand { font-size: 1.25rem; padding: 0 1rem; }
+  .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; align-items: start; }
+  .direction--heic-to-jpg .hero__support p { max-width: 32ch; font-size: 1rem; }
+  .direction--heic-to-jpg .hero__actions { gap: 0.85rem 1rem; }
+  .direction--heic-to-jpg .hero__actions .button { width: auto; padding: 1.25rem 2.5rem; font-size: 1.1rem; }
+  .direction--heic-to-jpg .why { grid-template-columns: 1fr; }
+  .direction--heic-to-jpg .settings { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .direction--heic-to-jpg *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ---------- sekcje treściowe modułu (jak działa / privacy / faq / support) ---------- */
+.direction--heic-to-jpg main > section { padding: clamp(4rem, 9vw, 8rem) var(--page-gutter); }
+.direction--heic-to-jpg main > section#converter { padding-top: clamp(3rem, 7vw, 6rem); }
+.direction--heic-to-jpg .how-steps { margin: 2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.direction--heic-to-jpg .how-steps li { padding: 1.35rem 0 1.55rem; }
+.direction--heic-to-jpg .how-steps li:first-child { padding-top: 0; }
+.direction--heic-to-jpg .how-steps li strong { display: block; margin-bottom: 0.15rem; }
+.direction--heic-to-jpg .how-steps li p { margin: 0; color: var(--muted); }
+.direction--heic-to-jpg .how-note { margin: 1.25rem 0 0; color: var(--muted); font-size: 0.9rem; }
+.direction--heic-to-jpg .faq details { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+.direction--heic-to-jpg .faq details + details { margin-top: 10px; }
+.direction--heic-to-jpg .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.direction--heic-to-jpg .faq details p { margin: 10px 0 0; color: var(--muted); }

@@ -44,7 +44,7 @@
         <p>Od pierwszej koncepcji po działający produkt cyfrowy.</p>
         <div class="hero__actions">
           <a class="button" href="#services">Poznaj nasze możliwości</a>
-          <a class="button button--emerald" href="mailto:contact@enclav.cc?subject=Enclav.cc%20inquiry&body=Klient%20%2F%20Firma%3A%0ABran%C5%BCa%3A%0AOsoba%20koordynuj%C4%85ca%3A%0AKontakt%3A%0AMarka%20%E2%80%93%20opis%3A%0AMateria%C5%82y%20promocyjne%20klienta%3A%0ACel%20kampanii%3A%0AGrupy%20docelowe%3A" data-mailto="contact@enclav.cc" data-mailto-subject="Enclav.cc inquiry">Wyślij zapytanie email</a>
+          <a class="button button--emerald" href="mailto:contact@enclav.cc" data-mailto="contact@enclav.cc" data-mailto-subject="Wyślij zapytanie email">Wyślij zapytanie email</a>
         </div>
       </div>
     </div>
@@ -73,48 +73,46 @@
     <section id="contact" class="closing">
       <h2>Masz pomysł na coś nowego?</h2>
       <p>Zamieńmy go w coś rzeczywistego.</p>
-      <a class="button button--emerald" href="mailto:contact@enclav.cc?subject=Enclav.cc%20inquiry&body=Klient%20%2F%20Firma%3A%0ABran%C5%BCa%3A%0AOsoba%20koordynuj%C4%85ca%3A%0AKontakt%3A%0AMarka%20%E2%80%93%20opis%3A%0AMateria%C5%82y%20promocyjne%20klienta%3A%0ACel%20kampanii%3A%0AGrupy%20docelowe%3A" data-mailto="contact@enclav.cc" data-mailto-subject="Enclav.cc inquiry">Wyślij zapytanie email</a>
+      <a class="button button--emerald" href="#contact-note">Porozmawiajmy o projekcie</a>
     </section>
     <section id="contact-form" class="contact-form" style="display:none;padding:clamp(2rem,5vw,5rem) var(--page-gutter);background:transparent;">
-      <button class="contact-form__close" aria-label="Zamknij formularz"></button>
+      <button class="contact-form__close" aria-label="Zamknij formularz">✕</button>
     <h2 class="section-heading" style="margin-top:0;">Potrzebujemy kilku informacji</h2>
     <p style="max-width:68ch;margin-top:clamp(1rem,3vw,2rem);margin-bottom:clamp(1rem,3vw,2rem);color:#fafafa;opacity:0.9;">Informacje, które nam przekażesz, pozwolą lepiej poznać specyfikę Twojej marki, zrozumieć jej realne potrzeby i oczekiwania. Dzięki temu będziemy mogli wstępnie określić zakres niezbędnych działań oraz ocenić, jakie rozwiązania najlepiej pomogą osiągnąć zamierzony cel.</p>
-    <form action="mailto:contact@enclav.cc" method="post" enctype="text/plain" data-section="create" data-lang="pl" data-done="Dziękujemy — wiadomość wysłana." data-err="Wysyłanie nie powiodło się — napisz do contact@enclav.cc" style="position:relative;max-width:68ch;margin-top:clamp(1rem,3vw,2rem);">
-      <div aria-hidden="true" style="position:absolute;left:-9999px;"><input type="text" name="_hp" tabindex="-1" autocomplete="off"></div>
-      <p class="contact-form__status" role="status" hidden></p>
+    <form action="mailto:contact@enclav.cc" method="post" enctype="text/plain" style="max-width:68ch;margin-top:clamp(1rem,3vw,2rem);">
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Klient / Firma</label>
-        <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Klient / Firma" required>
+        <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Klient / Firma" required>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Branża</label>
-        <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Branża" required>
+        <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Branża" required>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Osoba koordynująca / Brand Manager</label>
-        <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Osoba koordynująca" required>
+        <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Osoba koordynująca" required>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Kontakt (e-mail, telefon, adres)</label>
-        <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Kontakt" required>
+        <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Kontakt" required>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Marka – opis działalności</label>
-        <input style="width:100%;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Marka – opis" required>
+        <input style="width:100%;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" type="text" name="Marka – opis" required>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Materiały promocyjne klienta</label>
-        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Materiały promocyjne klienta"></textarea>
+        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Materiały promocyjne klienta"></textarea>
       </div>
       <div style="margin-bottom:clamp(1rem,3vw,2rem);">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Cel kampanii</label>
-        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Cel kampanii"></textarea>
+        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Cel kampanii"></textarea>
       </div>
       <div style="margin-bottom:0;">
         <label style="display:block;margin-bottom:.5rem;font-weight:600;color:#34d399;">Grupy docelowe</label>
-        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--line);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Grupy docelowe"></textarea>
+        <textarea style="width:100%;min-height:6rem;padding:.75rem;border:1px solid var(--border);background:var(--surface);color:#fafafa;border-radius:4px;font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;" rows="3" name="Grupy docelowe"></textarea>
       </div>
-      <button style="width:100%;padding:.75rem 1.25rem;margin-top:clamp(1rem,3vw,2rem);background:#34d399;color:#09090b;border:none;border-radius:4px;font-weight:600;cursor:pointer;" type="submit">Wyślij</button>
+      <button style="width:100%;padding:.75rem 1.25rem;margin-top:clamp(1rem,3vw,2rem);background:#34d399;color:#09090b;border:none;border-radius:4px;font-weight:600;cursor:pointer;" type="submit">Wyślij email</button>
     </form>
   </section>
   </main>
@@ -123,9 +121,8 @@
     <p class="site-footer__tagline">Imagine what's next.</p>
     <p class="site-footer__tagline">Technologia. Kreatywność. Nowe możliwości.</p>
     <p class="site-footer__ventures"><a href="/pl/create">CREATE</a> · <a href="/pl/copy">COPY</a> · <a href="/pl/private-ai">PRIVATE AI</a> · ADAPTIVE APPSEC · <a href="/pl/packly">PACKLY</a></p>
-    <p class="site-footer__legal">© 2026 ENCLAV. Warszawa, Polska. Współpracujemy z klientami w całej Europie. <a href="mailto:hello@enclav.cc">hello@enclav.cc</a> · Odpowiadamy w ciągu 24h</p>
+    <p class="site-footer__legal">© ENCLAV. Wszelkie prawa zastrzeżone.</p>
   </footer>
   <script src="/js/canvas-bg.js"></script>
-  <script src="/js/contact-form.js"></script>
 </body>
 </html>

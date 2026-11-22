@@ -48,4 +48,16 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly"/>
   </url>
+  <url>
+    <loc>https://enclav.cc/pl/heic-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/heic-to-jpg"/>
+  </url>
+  <url>
+    <loc>https://enclav.cc/en/heic-to-jpg</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/heic-to-jpg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/heic-to-jpg"/>
+  </url>
 </urlset>
