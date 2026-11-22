@@ -240,7 +240,14 @@ p { max-width: 68ch; text-wrap: pretty; }
 .site-footer p { margin: .35rem 0; }
 .site-footer__ventures { margin-top: 1.5rem !important; color: var(--ink); }
 .site-footer__ventures a { color: inherit; text-decoration: none; }
-.site-footer__ventures a:hover { color: var(--accent); }
+.site-footer__ventures a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: .15em;
+  text-underline-offset: .45em;
+}
+.site-footer__ventures a:hover,
+.site-footer__ventures a:focus-visible { color: var(--accent); }
 .site-footer__tools-group {
   display: inline-flex;
   align-items: center;
@@ -259,12 +266,15 @@ p { max-width: 68ch; text-wrap: pretty; }
   font-weight: 700;
   text-decoration: none;
 }
-.site-footer__ventures a.site-nav__tools[aria-current="page"] { color: var(--accent); }
+.site-footer__ventures a.site-nav__tools[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: none;
+}
 .site-footer__ventures a.site-nav__tools .site-nav__tools-label { text-decoration: none; }
 .site-footer__ventures a.site-nav__tools[aria-current="page"] .site-nav__tools-label {
   text-decoration: underline;
   text-decoration-thickness: .15em;
-  text-underline-offset: .35em;
+  text-underline-offset: .45em;
 }
 .site-footer__ventures a.site-nav__tools:not([aria-current="page"]):hover .site-nav__tools-label,
 .site-footer__ventures a.site-nav__tools:not([aria-current="page"]):focus-visible .site-nav__tools-label {
@@ -588,6 +598,10 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 }
 
 /* ── Menu nawigacyjne — mniejsze, aktywne emerald ── */
+.direction--canvas-bg {
+  --enclav-nav-font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+}
+
 .direction--canvas-bg .site-nav {
   gap: clamp(1rem, 2.4vw, 2rem);
 }
@@ -595,9 +609,23 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--canvas-bg .site-nav a,
 .direction--canvas-bg .site-nav span,
 .direction--canvas-bg .locale a {
-  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-size: var(--enclav-nav-font-size);
   color: inherit;
   text-decoration: none;
+}
+
+.direction--canvas-bg .site-footer__ventures {
+  font-size: var(--enclav-nav-font-size);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .direction--canvas-bg {
+    --enclav-nav-font-size: 1rem;
+  }
+  .direction--canvas-bg .site-footer__ventures {
+    line-height: 1.35;
+  }
 }
 
 .direction--canvas-bg .site-nav a[aria-current="page"],
@@ -644,7 +672,7 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 }
 .direction--canvas-bg .site-footer__ventures .footer-soon {
   color: #85858d;
-  opacity: .48;
+  opacity: .46;
 }
 .direction--canvas-bg .mobile-nav__links a.site-nav__tools[aria-current="page"] {
   color: #34d399;
