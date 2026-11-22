@@ -12,31 +12,35 @@
       hero_b: "Twojego urządzenia.",
       hero_sub: "Darmowy konwerter HEIC → JPG w technologii WebAssembly — całość dzieje się na Twoim urządzeniu. 0 bajtów wysłanych na serwer.",
       tool_hero_a: "Twoje zdjęcia nie opuszczają Twojego urządzenia.",
-      tool_hero_b: "Darmowy konwerter HEIC na JPG — pliki HEIC i HEIF z telefonu są dekodowane do JPG lokalnie w przeglądarce przez lokalny silnik WebAssembly, a Twoje zdjęcia nie opuszczają urządzenia.",
-      tool_hero_c: "Bez konta i bez limitów. Batch i eksport do ZIP są wbudowane.",
-      badge: "0 requestów • 0 uploadów • działa offline",
-      hint: "Nie wierzysz? Otwórz DevTools → Network, odetnij internet po załadowaniu strony — konwersja dalej działa.",
-      proof_title: "Zobacz, gdzie są Twoje zdjęcia",
+      tool_hero_b: "Darmowy konwerter HEIC na JPG. Konwertuj zdjęcia HEIC i HEIF bezpośrednio w przeglądarce. Przetwarzanie odbywa się lokalnie, bez przesyłania plików na serwer.",
+      tool_hero_c: "Bez konta i bez opłat. Konwertuj wiele zdjęć jednocześnie i pobieraj wyniki pojedynczo lub w archiwum ZIP.",
+      badge: "Zdjęcia nie są wysyłane",
+      hint: "Otwórz narzędzia deweloperskie przeglądarki (DevTools), przejdź do zakładki Network i uruchom konwersję. Możesz również odciąć dostęp do internetu po pierwszym załadowaniu strony — konwersja i pobieranie wyników nadal działają.",
+      proof_title: "Możesz to sprawdzić samodzielnie",
       proof_lead: "Cały proces — plik, silnik WASM i wynik — dzieje się wewnątrz Twojego urządzenia. Chmura jest na zewnątrz i nie dostaje nic.",
-      live: "na żywo: 0 requestów • 0 bajtów — wszystko na Twoim urządzeniu",
-      net_note: "licznik od załadowania strony — konwersja nie dodaje żadnych",
+      live_idle: "Licznik aktualizuje się podczas konwersji.",
+      live: "Podczas konwersji: {n} żądań sieciowych — zdjęcia pozostają na Twoim urządzeniu",
+      net_since: "Od załadowania strony",
+      net_conv: "Podczas konwersji",
+      net_req: "żądań",
+      net_note: "Licznik opiera się na API Resource Timing przeglądarki i pokazuje żądania zasobów strony oraz pobrane bajty. Konwerter nie ma funkcji wysyłania plików, a CSP ogranicza wybrane połączenia sieciowe.",
       conv_title: "Darmowy konwerter HEIC na JPG",
-      conv_intro: "Darmowy konwerter HEIC na JPG — pliki HEIC i HEIF z telefonu są dekodowane do JPG lokalnie w przeglądarce przez lokalny silnik WebAssembly, a Twoje zdjęcia nie opuszczają urządzenia.",
+      conv_intro: "Darmowy konwerter HEIC na JPG. Konwertuj zdjęcia HEIC i HEIF bezpośrednio w przeglądarce. Przetwarzanie odbywa się lokalnie, bez przesyłania plików na serwer.",
       pick: "Wybierz zdjęcia",
-      drop: "…albo upuść pliki .heic / .heif tutaj (wiele naraz)",
+      drop: "Albo przeciągnij tu pliki .heic / .heif. Możesz dodać kilka naraz.",
       quality: "Jakość JPG",
-      maxside: "Maks. dłuższy bok",
-      ms_orig: "Oryginał (bez skalowania)",
-      aszip: "Pakuj wyniki do ZIP (przy 2+ plikach)",
+      maxside: "Maksymalny dłuższy bok",
+      ms_orig: "Oryginalny rozmiar (bez skalowania)",
+      aszip: "Pobierz wyniki jako ZIP (2 lub więcej plików)",
       convert: "Konwertuj",
       zip: "Pobierz ZIP",
       clear: "Wyczyść",
-      w1t: "WebAssembly, nie serwer",
-      w1d: "Dekoder libheif działa w Twojej przeglądarce. Plik nie jest nigdzie wysyłany — to wymusza nawet polityka CSP strony.",
+      w1t: "WebAssembly zamiast serwera",
+      w1d: "Dekoder libheif działa lokalnie w przeglądarce dzięki WebAssembly. Zdjęcia nie są wysyłane do zewnętrznej usługi konwersji.",
       w2t: "Działa offline",
-      w2d: "Po załadowaniu odetnij internet — batch i ZIP nadal działają. Tak sprawdzisz obietnicę prywatności.",
-      w3t: "Darmowy, bez limitów",
-      w3d: "Bez konta i bez limitów. Jeśli Ci pomógł, postaw kawę — link prowadzi na zewnętrzny serwis płatności.",
+      w2d: "Po pierwszym załadowaniu strony możesz odciąć dostęp do internetu i nadal konwertować zdjęcia oraz pobierać wyniki.",
+      w3t: "Zawsze za darmo",
+      w3d: "Bez rejestracji, abonamentu i opłat za konwersję.",
       coffee: "Postaw kawę za darmowy konwerter",
       privacy_link: "Prywatność: jak to działa i jak zweryfikować",
       fine: "Konwertowana jest pierwsza klatka (Live Photo → 1 JPG). Pełny EXIF nie jest przenoszony. Kliknięcie w link kawy prowadzi na zewnętrzny serwis — sam konwerter nic nie wysyła.",
@@ -76,31 +80,35 @@
       hero_b: "your device.",
       hero_sub: "Free HEIC → JPG converter powered by WebAssembly — everything happens on your device. 0 bytes sent to any server.",
       tool_hero_a: "Your photos never leave your device.",
-      tool_hero_b: "Free HEIC to JPG converter — HEIC and HEIF files from your phone are decoded to JPG locally in the browser via a local WebAssembly engine, and your photos never leave your device.",
-      tool_hero_c: "No account, no limits. Batch and ZIP export are built in.",
-      badge: "0 requests • 0 uploads • works offline",
-      hint: "Don't believe it? Open DevTools → Network, disconnect after load — conversion still works.",
-      proof_title: "See where your photos are",
+      tool_hero_b: "Convert HEIC and HEIF photos to JPG directly in your browser. Your photos are processed locally and are not uploaded to a server.",
+      tool_hero_c: "No account or subscription required. Convert multiple photos at once and download your results individually or as a ZIP archive.",
+      badge: "Your photos are not uploaded",
+      hint: "Open your browser's Developer Tools (DevTools), select Network, and start a conversion. You can also disconnect from the internet after the page has loaded — conversion and downloading keep working.",
+      proof_title: "Verify it yourself",
       proof_lead: "The whole pipeline — file, WASM engine and result — happens inside your device. The cloud is outside and gets nothing.",
-      live: "live: 0 requests • 0 bytes — everything on your device",
-      net_note: "counter since page load — conversion adds none",
+      live_idle: "The counter updates during conversion.",
+      live: "During conversion: {n} network requests — your photos stay on your device",
+      net_since: "Since page load",
+      net_conv: "During conversion",
+      net_req: "requests",
+      net_note: "This counter uses the browser's Resource Timing API and counts page resource requests and downloaded bytes. The converter has no upload functionality, and the CSP restricts selected network connections.",
       conv_title: "Free HEIC to JPG Converter",
-      conv_intro: "The HEIC to JPG converter runs entirely in your browser — HEIC/HEIF photos are decoded to JPG by the local WebAssembly engine, and your files never leave your device.",
+      conv_intro: "Convert HEIC and HEIF photos to JPG directly in your browser. Your photos are processed locally and are not uploaded to a server.",
       pick: "Choose photos",
-      drop: "…or drop .heic / .heif files here (batch welcome)",
+      drop: "Or drag and drop .heic / .heif files here. You can add several at once.",
       quality: "JPG quality",
-      maxside: "Max long edge",
+      maxside: "Maximum long edge",
       ms_orig: "Original (no scaling)",
-      aszip: "Pack results into ZIP (2+ files)",
+      aszip: "Download results as a ZIP (2+ files)",
       convert: "Convert",
       zip: "Download ZIP",
       clear: "Clear",
       w1t: "WebAssembly, not a server",
-      w1d: "The libheif decoder runs in your browser. Files are never uploaded — even enforced by this page's CSP policy.",
+      w1d: "The libheif decoder runs directly in your browser using WebAssembly. Your photos are never sent to an external conversion service.",
       w2t: "Works offline",
-      w2d: "Disconnect after load — batch and ZIP still work. That's how you verify the privacy promise.",
-      w3t: "Free, no limits",
-      w3d: "No account, no limits. If it helped, buy a coffee — the link goes to an external payment service.",
+      w2d: "After the page has loaded, disconnect from the internet. You can still convert multiple photos and download JPG results or a ZIP archive.",
+      w3t: "Always free",
+      w3d: "No account, subscription or payment required.",
       coffee: "Buy a coffee for the free converter",
       privacy_link: "Privacy: how it works and how to verify",
       fine: "Only the first frame is converted (Live Photo → 1 JPG). Full EXIF is not carried over. Clicking the coffee link goes to an external service — the converter itself sends nothing.",
@@ -169,15 +177,42 @@
     if (!state.running) setStatus(t("status_idle"));
   }
 
-  /* ---------------- network monitor (proof) ---------------- */
-  var netBase = 0;
-  try { netBase = performance.getEntriesByType("resource").length; } catch (e) { }
+  /* ---------------- network monitor (proof) ----------------
+     Pomiar oparty wyłącznie na Resource Timing API: liczba wpisów zasobów i suma ich
+     transferSize. API nie udostępnia bajtów wysłanych, dlatego licznik NIE deklaruje
+     zmierzonej wysyłki — opis w interfejsie mówi wprost, że konwerter nie zawiera kodu
+     wysyłki plików, a CSP (connect-src 'none') blokuje fetch/XHR/WebSocket.
+     „Podczas konwersji" = różnica wpisów i bajtów między startem a stanem bieżącym. */
+  function netStats() {
+    var req = 0, bytes = 0;
+    try {
+      var rs = performance.getEntriesByType("resource");
+      req = rs.length;
+      for (var i = 0; i < rs.length; i++) bytes += rs[i].transferSize || 0;
+    } catch (e) { /* API niedostępne -> zera, bez sztucznych wartości */ }
+    return { req: req, bytes: bytes };
+  }
+  function fmtBytes(n) {
+    if (!n || n < 0) return "0 B";
+    if (n >= 1048576) return (n / 1048576).toFixed(1) + " MB";
+    if (n >= 1024) return Math.round(n / 1024) + " kB";
+    return n + " B";
+  }
+  var convMark = null;
+  var convWindow = { req: 0, bytes: 0 };
   function updateNet() {
-    var n = 0;
-    try { n = performance.getEntriesByType("resource").length - netBase; } catch (e) { }
-    if (n < 0) n = 0;
+    var now = netStats();
     var el = document.getElementById("netCount");
-    if (el) el.textContent = String(n);
+    if (el) el.textContent = String(now.req);
+    var eb = document.getElementById("netBytes");
+    if (eb) eb.textContent = fmtBytes(now.bytes);
+    if (convMark) convWindow = { req: Math.max(0, now.req - convMark.req), bytes: Math.max(0, now.bytes - convMark.bytes) };
+    var ec = document.getElementById("netConv");
+    if (ec) ec.textContent = String(convWindow.req);
+    var ecb = document.getElementById("netConvBytes");
+    if (ecb) ecb.textContent = fmtBytes(convWindow.bytes);
+    var live = document.getElementById("liveNet");
+    if (live && convMark) live.textContent = fill(t("live"), { n: convWindow.req });
   }
 
   /* ---------------- converter ---------------- */
@@ -286,6 +321,9 @@
     zipBtn.disabled = true;
     state.results = [];
     progress.classList.add("show");
+    convMark = netStats();
+    convWindow = { req: 0, bytes: 0 };
+    updateNet();
     var q = (parseInt(quality.value, 10) || 92) / 100;
     var ms = parseInt(maxside.value, 10) || 0;
     var done = 0, ok = 0, errs = 0;
@@ -296,9 +334,11 @@
         state.running = false;
         convertBtn.disabled = false;
         zipBtn.disabled = state.results.length === 0;
-        setStatus(fill(t("status_done"), { ok: ok, err: errs }));
         barFill.style.width = "100%";
+        updateNet();
+        // auto-ZIP ustawia własny status „konwersja…" — końcowy komunikat musi wygrać
         if (asZip.checked && state.results.length > 1) doZip(true);
+        setStatus(fill(t("status_done"), { ok: ok, err: errs }));
         return;
       }
       var e = state.entries[i];
@@ -405,6 +445,8 @@
 
   /* init */
   applyI18n();
+  var liveNet = document.getElementById("liveNet");
+  if (liveNet) liveNet.textContent = t("live_idle");
   updateNet();
   window.setInterval(updateNet, 2000);
 })();

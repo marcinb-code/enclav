@@ -128,14 +128,20 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 
 /* Pasek prywatności / trik WOM (z oryginału) — na stronie ENCLAV siedzi w sekcji #privacy. */
 .direction--heic-to-jpg .privacy-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(52, 211, 153, 0.1); color: var(--accent); border: 1px solid rgba(52, 211, 153, 0.4); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; margin: 0 0 1rem; }
+.direction--heic-to-jpg .proof-title { margin: 0 0 0.4rem; font-size: clamp(1.05rem, 1.6vw, 1.3rem); font-weight: 700; color: var(--ink); }
 .direction--heic-to-jpg .proof-hint { color: var(--muted); font-size: 14px; margin: 0 0 0.75rem; max-width: 62ch; }
 .direction--heic-to-jpg .proof-hint code { background: var(--border); padding: 1px 6px; border-radius: 6px; }
+
+/* H2 konwertera — tylko dla struktury nagłówków i czytników ekranu (layout bez zmian). */
+.direction--heic-to-jpg .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 
 /* Status live + monitor network (oryginał) — pod badge'em z kłódką, w prawej kolumnie. */
 .direction--heic-to-jpg .live-status { display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; margin-top: 0.35rem; font-size: clamp(0.9rem, 1.4vw, 1.05rem); color: var(--accent); font-weight: 700; }
 .direction--heic-to-jpg .live-status .dotp { width: 6px; height: 6px; border-radius: 9999px; background: var(--accent); box-shadow: 0 0 8px rgba(52, 211, 153, 0.8); animation: enclav-heic-dot-pulse 1.6s ease-in-out infinite; /* taste-skill-ignore */ }
 @keyframes enclav-heic-dot-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
-.direction--heic-to-jpg .net-monitor { margin: 12px 0 1.75rem; font-size: 14px; background: var(--bg); color: #a7f3d0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-family: inherit; }
+.direction--heic-to-jpg .net-monitor { margin: 12px 0 1.75rem; font-size: 13.5px; line-height: 1.65; background: var(--bg); color: #a7f3d0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-family: inherit; }
+.direction--heic-to-jpg .net-monitor .nm-line { display: block; }
+.direction--heic-to-jpg .net-monitor .nm-note { margin-top: 0.35rem; color: var(--muted); font-size: 12.5px; }
 .direction--heic-to-jpg .net-monitor b { color: #fff; }
 .direction--heic-to-jpg .privacy-proof p { max-width: 62ch; margin: 0 0 1rem; color: var(--muted); }
 .direction--heic-to-jpg .privacy-proof p:last-child { margin-bottom: 0; }
