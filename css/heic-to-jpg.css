@@ -42,29 +42,32 @@
 
 /* ---------- HERO — narzędzie HEIC→JPG ---------- */
 
-/* Kategoria TOOLS + oryginalny logo HEIC→JPG (heic→jpg) + hasło narzędzia. */
-.direction--heic-to-jpg .hero { text-align: center; }
-.direction--heic-to-jpg .hero__eyebrow { display: block; margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; font-weight: 650; }
-.direction--heic-to-jpg .hero__title { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: none; margin: 0; font-size: var(--display); font-weight: 700; line-height: 0.86; letter-spacing: -0.055em; }
+/* Kategoria TOOLS + oryginalny logo HEIC→JPG (heic→jpg) + hasło narzędzia.
+   Hero w układzie dwukolumnowym ENCLAV: lewa kolumna = HEAD + opis, prawa = konwerter.
+   Logo heic→jpg mały i wyrównany do lewego marginesu razem z TOOLS. */
+.direction--heic-to-jpg .hero { text-align: left; }
+.direction--heic-to-jpg .hero__eyebrow { display: block; margin: 0 0 0.6rem; color: var(--muted); font-size: 0.9rem; font-weight: 650; text-align: left; }
+.direction--heic-to-jpg .hero__title { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; max-width: 18ch; margin: 0; font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.05em; }
 .direction--heic-to-jpg .hero__title span { display: block; }
 .direction--heic-to-jpg .hero__title span:first-child { color: #fafafa; }
 .direction--heic-to-jpg .hero__title span:last-child { color: var(--accent); }
-.direction--heic-to-jpg .hero__support { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(2.5rem, 6vw, 5rem); margin-top: clamp(2rem, 5vw, 3.5rem); }
+.direction--heic-to-jpg .hero__support { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: start; gap: clamp(2rem, 4vw, 3.5rem); margin-top: clamp(1.75rem, 4vw, 3rem); }
 .direction--heic-to-jpg .hero__support > div { min-width: 0; }
-.direction--heic-to-jpg .hero__support > div:first-child { max-width: 52ch; }
-.direction--heic-to-jpg .hero__support p { max-width: 52ch; margin: 0; color: var(--accent-ink); font-size: var(--lead); line-height: 1.35; }
+.direction--heic-to-jpg .hero__support > div:first-child { max-width: 46ch; }
+.direction--heic-to-jpg .hero__support > div:first-child p { max-width: 46ch; margin: 0 0 1rem; color: var(--muted); font-size: var(--body); line-height: 1.5; }
+.direction--heic-to-jpg .hero__intro .hero__title { margin-bottom: 1.25rem; }
 .direction--heic-to-jpg .hero__converter { min-width: 0; }
-.direction--heic-to-jpg .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.direction--heic-to-jpg .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.5rem; }
 
 /* Oryginalny logo HEIC→JPG — font 'Borel' (self-hosted, /fonts/borel-*.woff2), wagą 400,
    stylem normal, kolorystyką z oryginału (.logo-heic/.logo-jpg = var(--accent) emerald,
-   strzałka = #fafafa z oryginału). */
+   strzałka = #fafafa z oryginału). Rozmiar mały — logo stoi przy lewym marginesie pod TOOLS. */
 .direction--heic-to-jpg .hero__logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.1em;
-  margin: 0 auto 1.75rem;
+  margin: 0 0 1.5rem;
   font-family: 'Borel', ui-sans-serif, system-ui, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -73,29 +76,37 @@
   line-height: 1;
   text-decoration: none;
   color: var(--accent);
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.9rem);
 }
 .direction--heic-to-jpg .hero__logo .logo-heic,
 .direction--heic-to-jpg .hero__logo .logo-jpg { color: var(--accent); }
 .direction--heic-to-jpg .hero__logo .logo-arrow { color: #fafafa; font-size: 1.1em; line-height: 1; }
 @media (min-width: 641px) { .direction--heic-to-jpg .hero__logo { padding-top: 0.38em; } }
 
-/* Pasek prywatności / trik WOM (z oryginału). */
-.direction--heic-to-jpg .hero .privacy-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(52, 211, 153, 0.1); color: var(--accent); border: 1px solid rgba(52, 211, 153, 0.4); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; }
-.direction--heic-to-jpg .hero .proof-hint { color: var(--muted); font-size: 14px; margin-top: 10px; }
-.direction--heic-to-jpg .hero .proof-hint code { background: var(--border); padding: 1px 6px; border-radius: 6px; }
+/* Pasek prywatności / trik WOM (z oryginału) — na stronie ENCLAV siedzi w sekcji #privacy. */
+.direction--heic-to-jpg .privacy-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(52, 211, 153, 0.1); color: var(--accent); border: 1px solid rgba(52, 211, 153, 0.4); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; margin: 0 0 1rem; }
+.direction--heic-to-jpg .proof-hint { color: var(--muted); font-size: 14px; margin: 0 0 0.75rem; max-width: 62ch; }
+.direction--heic-to-jpg .proof-hint code { background: var(--border); padding: 1px 6px; border-radius: 6px; }
 
-/* Status live + monitor network (oryginał). */
-.direction--heic-to-jpg .live-status { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.55rem; font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--accent); font-weight: 700; }
+/* Status live + monitor network (oryginał) — pod badge'em z kłódką, w prawej kolumnie. */
+.direction--heic-to-jpg .live-status { display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; margin-top: 0.35rem; font-size: clamp(0.9rem, 1.4vw, 1.05rem); color: var(--accent); font-weight: 700; }
 .direction--heic-to-jpg .live-status .dotp { width: 6px; height: 6px; border-radius: 9999px; background: var(--accent); box-shadow: 0 0 8px rgba(52, 211, 153, 0.8); animation: enclav-heic-dot-pulse 1.6s ease-in-out infinite; /* taste-skill-ignore */ }
 @keyframes enclav-heic-dot-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } }
-.direction--heic-to-jpg .net-monitor { margin-top: 12px; font-size: 14px; background: var(--bg); color: #a7f3d0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-family: inherit; }
+.direction--heic-to-jpg .net-monitor { margin: 12px 0 1.75rem; font-size: 14px; background: var(--bg); color: #a7f3d0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-family: inherit; }
 .direction--heic-to-jpg .net-monitor b { color: #fff; }
+.direction--heic-to-jpg .privacy-proof p { max-width: 62ch; margin: 0 0 1rem; color: var(--muted); }
+.direction--heic-to-jpg .privacy-proof p:last-child { margin-bottom: 0; }
+.direction--heic-to-jpg .privacy-proof code { color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
 
-/* ---------- SEKCJA: konwerter (oryginalny silnik, układ ENCLAV) ---------- */
-.direction--heic-to-jpg .converter { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+/* ---------- PANEL: konwerter (oryginalny silnik, układ ENCLAV — prawa kolumna hero) ---------- */
+.direction--heic-to-jpg .converter { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(1rem, 2vw, 1.5rem); }
 .direction--heic-to-jpg .converter .section-heading { margin: 0 0 12px; letter-spacing: -0.2px; max-width: 20ch; }
-.direction--heic-to-jpg .dropzone { border: 2px dashed var(--blue); border-radius: var(--radius); background: rgba(37, 99, 235, 0.08); padding: 34px 16px; text-align: center; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+
+/* Ikonki SVG (dropzone, kafelki) — oryginał nie ustawiał rozmiaru, tu jawny rozmiar. */
+.direction--heic-to-jpg .ic { width: 1.25em; height: 1.25em; flex: none; vertical-align: -0.18em; }
+.direction--heic-to-jpg .dropzone .ic-lg { width: clamp(2.25rem, 5vw, 3rem); height: clamp(2.25rem, 5vw, 3rem); color: var(--blue-soft); }
+
+.direction--heic-to-jpg .dropzone { border: 2px dashed var(--blue); border-radius: var(--radius); background: rgba(37, 99, 235, 0.08); padding: 26px 16px; text-align: center; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
 .direction--heic-to-jpg .dropzone:hover, .direction--heic-to-jpg .dropzone.over { background: rgba(37, 99, 235, 0.16); border-color: var(--blue-soft); }
 .direction--heic-to-jpg .dropzone p { margin: 6px 0; color: var(--muted); }
 .direction--heic-to-jpg .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.75rem 1.25rem; border: 0; border-radius: 12px; cursor: pointer; font-weight: 650; font-size: 1rem; background: var(--ground); color: var(--ink); }
@@ -126,11 +137,12 @@
 .direction--heic-to-jpg .dl { font-size: 13px; font-weight: 700; color: var(--blue-soft); white-space: nowrap; }
 .direction--heic-to-jpg .actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
 
-/* ---------- SEKCJA: dlaczego / jak działa ---------- */
-.direction--heic-to-jpg .why { display: grid; gap: 10px; margin-top: 20px; }
+/* ---------- SEKCJA: dlaczego / jak działa (trzy kafelki z ikonami oryginału) ---------- */
+.direction--heic-to-jpg .why { display: grid; gap: 10px; margin-top: clamp(2rem, 4vw, 3rem); }
 @media (min-width: 640px) { .direction--heic-to-jpg .why { grid-template-columns: 1fr 1fr 1fr; } }
 .direction--heic-to-jpg .why .tile { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; font-size: 14px; }
-.direction--heic-to-jpg .why .tile b { display: block; margin-bottom: 6px; font-size: 15px; }
+.direction--heic-to-jpg .why .tile b { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 15px; }
+.direction--heic-to-jpg .why .tile b .ic { width: 20px; height: 20px; color: var(--accent); vertical-align: baseline; }
 .direction--heic-to-jpg .why .tile p { margin: 0; color: var(--muted); }
 
 /* Diagram przepływu (oryginał, z animacjami 24s). */
@@ -182,10 +194,10 @@
   .direction--heic-to-jpg .diagram .anim-hide { display: none; }
 }
 
-/* ---------- SEKCJA: konwerter / jak działa / prywatność — dwuliniowy układ (opis | mechanizm) ---------- */
-.direction--heic-to-jpg .converter .service-layout { align-items: start; }
+/* ---------- SEKCJA: jak działa / prywatność — dwuliniowy układ (opis | mechanizm) ---------- */
 .direction--heic-to-jpg .how .section-heading { max-width: 22ch; }
 .direction--heic-to-jpg .privacy .section-heading { max-width: 30ch; }
+.direction--heic-to-jpg .privacy .service-layout { align-items: start; }
 
 /* ---------- SEKCJA: FAQ / ograniczenia / wsparcie ---------- */
 .direction--heic-to-jpg .faq details { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
@@ -195,13 +207,18 @@
 
 /* Stopka narzędzia (globalny footer ENCLAV wykorzystywany z modułu). */
 
+@media (max-width: 900px) {
+  .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; gap: 2rem; }
+  .direction--heic-to-jpg .hero__support > div:first-child { max-width: 42ch; }
+}
+
 @media (max-width: 640px) {
   .direction--heic-to-jpg .brand { font-size: 1.25rem; padding: 0 1rem; }
-  .direction--heic-to-jpg .hero__title { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .direction--heic-to-jpg .hero__title { font-size: clamp(1.9rem, 7vw, 2.6rem); max-width: none; }
   .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; align-items: start; }
-  .direction--heic-to-jpg .hero__support p { max-width: 32ch; font-size: 1rem; }
-  .direction--heic-to-jpg .hero__actions { gap: 0.85rem 1rem; }
-  .direction--heic-to-jpg .hero__actions .button { width: auto; padding: 1.25rem 2.5rem; font-size: 1.1rem; }
+  .direction--heic-to-jpg .hero__support > div:first-child p { max-width: 34ch; font-size: 1rem; }
+  .direction--heic-to-jpg .hero__actions { flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; padding-bottom: 0; gap: 0.85rem 1rem; }
+  .direction--heic-to-jpg .hero__actions .button { width: auto; padding: 1rem 2rem; font-size: 1.05rem; }
   .direction--heic-to-jpg .why { grid-template-columns: 1fr; }
   .direction--heic-to-jpg .settings { grid-template-columns: 1fr; }
 }
@@ -211,7 +228,6 @@
 
 /* ---------- sekcje treściowe modułu (jak działa / privacy / faq / support) ---------- */
 .direction--heic-to-jpg main > section { padding: clamp(4rem, 9vw, 8rem) var(--page-gutter); }
-.direction--heic-to-jpg main > section#converter { padding-top: clamp(3rem, 7vw, 6rem); }
 .direction--heic-to-jpg .how-steps { margin: 2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
 .direction--heic-to-jpg .how-steps li { padding: 1.35rem 0 1.55rem; }
 .direction--heic-to-jpg .how-steps li:first-child { padding-top: 0; }
