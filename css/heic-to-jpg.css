@@ -294,3 +294,94 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 .direction--heic-to-jpg .faq details p { margin: 10px 0 0; color: var(--muted); }
 .direction--heic-to-jpg .closing .hero__actions { justify-content: flex-start; }
+
+/* ---------- HERO v4: trzy kolumny (HEAD | emerald + CTA | konwerter) ----------
+   Właściciel (2026-11-22): lewa = duże białe „Your photos never" (skala jak hasła HEAD
+   pozostałych podstron), środek = emerald „leave your device." do lewej + wycentrowany
+   guzik „How it works", prawa = KONWERTER bez zmian. Poniżej 1280 px — dotychczasowy
+   układ (hasło w jednej kolumnie, treść pod nim), na mobile wszystko pod hasłem. */
+@media (min-width: 1280px) {
+  .direction--heic-to-jpg .hero__support--tool {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) 27rem;
+    align-items: start;
+    justify-content: space-between;
+    gap: clamp(1.5rem, 3vw, 3rem);
+  }
+  .direction--heic-to-jpg .hero__support--tool > div { max-width: none; }
+
+  /* h1 bez własnego pudełka: oba spany stają się elementami siatki (kol. 1 i 2). */
+  .direction--heic-to-jpg .hero__support--tool .hero__title,
+  .direction--heic-to-jpg.direction--canvas-bg .hero__support--tool .hero__title,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title { display: contents; }
+
+  .direction--heic-to-jpg .hero__support--tool .hero__title-lead,
+  .direction--heic-to-jpg .hero__support--tool .hero__title span:first-child,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title-lead,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title span:first-child {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 11ch;
+    color: #fafafa;
+    font-size: clamp(2.5rem, 5vw, 6rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+  }
+
+  .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 16ch;
+    padding-top: 0.4em;
+    color: var(--accent);
+    font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2; max-width: 40ch; }
+  .direction--heic-to-jpg .hero__support--tool .hero__actions {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .direction--heic-to-jpg .hero__support--tool .hero__converter { grid-column: 3; grid-row: 1 / span 2; justify-self: end; }
+}
+
+/* Tablet / mały desktop: hasło w kolumnie 1, konwerter w kolumnie 2 (bez zmian). */
+@media (min-width: 901px) and (max-width: 1279px) {
+  .direction--heic-to-jpg .hero__support--tool { grid-template-columns: minmax(0, 1fr) 27rem; }
+  .direction--heic-to-jpg .hero__support--tool .hero__title { grid-column: 1; grid-row: 1; }
+  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2; }
+  .direction--heic-to-jpg .hero__support--tool .hero__actions { grid-column: 1; grid-row: 3; }
+  .direction--heic-to-jpg .hero__support--tool .hero__converter { grid-column: 2; grid-row: 1 / span 3; }
+}
+
+/* Mobile: wszystko (emerald, opis, guzik, konwerter) pod hasłem „Your photos never". */
+@media (max-width: 900px) {
+  .direction--heic-to-jpg .hero__support--tool { grid-template-columns: 1fr; }
+  .direction--heic-to-jpg .hero__support--tool > h1,
+  .direction--heic-to-jpg .hero__support--tool > div { grid-column: 1; grid-row: auto; max-width: none; }
+  .direction--heic-to-jpg .hero__support--tool .hero__actions { justify-content: flex-start; margin-top: 0; }
+}
+
+/* Sekcja #support (Wesprzyj projekt / Want to support the project?) — dłuższa treść
+   nie może dziedziczyć display-owego rozmiaru z .closing (100 px, 3 linie);
+   skala jak nagłówki sekcji pozostałych podstron ENCLAV. */
+.direction--heic-to-jpg .closing h2 {
+  max-width: 18ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.direction--heic-to-jpg .closing p { max-width: 62ch; font-size: var(--lead); color: var(--ink); }
