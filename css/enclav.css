@@ -102,6 +102,31 @@ p { max-width: 68ch; text-wrap: pretty; }
 .mobile-nav { display: none; }
 .mobile-nav__links a[aria-current="page"] { color: var(--accent); }
 
+/* ── TOOLS + plakietka FREE (menu ENCLAV, badge wg zdjęcia właściciela) ──
+   TOOLS prowadzi bezpośrednio do HEIC→JPG (/en|pl/heic-to-jpg/). Gdy dojdą kolejne
+   narzędzia (OCR, upscaler, konwertery) link ewoluuje w dropdown — bez zmiany markupu
+   nawigacji, tylko podmenu w tym samym miejscu. */
+.site-nav__sep {
+  width: 1px;
+  height: 1.15em;
+  background: currentColor;
+  opacity: .3;
+}
+.site-nav__tools { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; }
+.badge-free {
+  display: inline-block;
+  padding: .2em .55em .22em;
+  border: 1px solid rgba(52, 211, 153, .45);
+  border-radius: 999px;
+  background: rgba(52, 211, 153, .12);
+  color: var(--accent);
+  font-size: .7em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+.site-nav__tools[aria-current="page"] { color: var(--accent); text-decoration: none; }
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -287,13 +312,29 @@ html[lang="pl"] body.direction--assigned:not(.direction--copy) .hero::before {
   inset-block-start: 46%;
 }
 
-@media (max-width: 760px) {
-  :root { --page-gutter: 1.1rem; --display: clamp(2.5rem, 10vw, 3.5rem); --body: 1rem; }
-  .site-header { display: grid; grid-template-columns: 1fr auto; gap: .75rem; min-height: 4.5rem; }
+@media (max-width: 900px) {
+  /* Dropdown mobilny włącza się już od 900px: przy 6 pozycjach + badge FREE pasek
+     łamał się na 768–880px. Trigger siada przy prawej krawędzi, pod PL/EN. */
+  .site-header { display: grid; grid-template-columns: 1fr auto; gap: .75rem; }
   .site-nav { display: none; }
   .mobile-nav { display: block; grid-column: 1 / -1; }
-  .mobile-nav summary { width: max-content; min-height: 2.75rem; padding: .55rem .75rem; cursor: pointer; }
-  .mobile-nav__links { display: flex; flex-wrap: wrap; gap: 1rem; padding: .75rem 0; }
+  .mobile-nav summary { width: max-content; margin-left: auto; min-height: 2.75rem; padding: .55rem .75rem; text-align: right; cursor: pointer; }
+  .mobile-nav__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1rem; padding: .75rem 0; text-align: right; }
+  .mobile-nav .site-nav__sep { display: none; }
+}
+
+@media (max-width: 560px) {
+  /* Wąskie ekrany: lista pozycji jako pionowy dropdown przy prawej krawędzi
+     (wszystkie pozycje wyrównane do tej samej osi co trigger pod PL/EN). */
+  .mobile-nav__links { flex-direction: column; align-items: flex-end; gap: .15rem; padding: .5rem 0; }
+  .mobile-nav__links > a,
+  .mobile-nav__links > span { display: block; padding: .5rem 0; line-height: 1.35; }
+  .mobile-nav__links > a.site-nav__tools { display: inline-flex; gap: .5rem; }
+}
+
+@media (max-width: 760px) {
+  :root { --page-gutter: 1.1rem; --display: clamp(2.5rem, 10vw, 3.5rem); --body: 1rem; }
+  .site-header { min-height: 4.5rem; }
   .hero { min-height: 45rem; min-height: 90svh; }
   .hero::before { inset-block-start: 50%; }
   .hero__content { align-content: center; padding-top: 1.5rem; }
