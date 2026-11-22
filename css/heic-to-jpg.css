@@ -193,7 +193,14 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .diagram svg { width: 100%; height: auto; display: block; }
 .direction--heic-to-jpg .diagram svg text { font-family: ui-sans-serif, system-ui, sans-serif; }
 .direction--heic-to-jpg .diagram-v { display: none; }
-@media (max-width: 640px) { .direction--heic-to-jpg .diagram-h { display: none; } .direction--heic-to-jpg .diagram-v { display: block; } }
+/* Owner (2026-11-22): diagram przechodzi w wersję PIONOWĄ znacznie wcześniej — wersja
+   pozioma zostaje tylko dla maksymalnej szerokości okna przeglądarki (≥1600 px). Poniżej
+   1600 px kolumna diagramu jest zbyt wąska, żeby poziomy SVG (900×400) był czytelny,
+   więc pokazujemy pionowy (440×700), wyśrodkowany i ograniczony do 22rem. */
+@media (max-width: 1599px) {
+  .direction--heic-to-jpg .diagram-h { display: none; }
+  .direction--heic-to-jpg .diagram-v { display: block; max-width: 25rem; margin-inline: auto; }
+}
 
 /* Animacje diagramu (identyczne parametry co oryginał). */
 @keyframes enclav-heic-doc-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
@@ -295,18 +302,23 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .faq details p { margin: 10px 0 0; color: var(--muted); }
 .direction--heic-to-jpg .closing .hero__actions { justify-content: flex-start; }
 
-/* ---------- HERO v4: trzy kolumny (HEAD | emerald + CTA | konwerter) ----------
-   Właściciel (2026-11-22): lewa = duże białe „Your photos never" (skala jak hasła HEAD
-   pozostałych podstron), środek = emerald „leave your device." do lewej + wycentrowany
-   guzik „How it works", prawa = KONWERTER bez zmian. Poniżej 1280 px — dotychczasowy
-   układ (hasło w jednej kolumnie, treść pod nim), na mobile wszystko pod hasłem. */
-@media (min-width: 1280px) {
+/* ---------- HERO v6: trzy kolumny (HEAD | emerald + CTA | konwerter) ----------
+   Wzór typograficzny = podstrona PACKLY (owner 2026-11-22):
+   - lewa kolumna: białe hasło w rozmiarze var(--display) — dokładnie jak „Your CAD stays yours."
+     w PACKLY (7.2vw, max 8rem);
+   - środkowa kolumna: emerald „leave your device." w rozmiarze clamp(2rem, 6vw, 4rem) —
+     dokładnie jak „Nothing saved. Nothing shared." w PACKLY, WYRÓWNANE DO DOŁU hasła
+     (align-self: end → ostatnia linia emerald na wysokości słowa „never");
+   - prawa kolumna: konwerter bez zmian (27rem, poniżej 1440 px zwęża się z oknem).
+   Trzy kolumny wchodzą od 1440 px — poniżej tej szerokości hasło + emerald + konwerter
+   nie mieszczą się w jednej linii bez łamania słów, więc 901–1439 px ma układ dwukolumnowy. */
+@media (min-width: 1440px) {
   .direction--heic-to-jpg .hero__support--tool {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) 27rem;
+    grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.55fr) clamp(20rem, 30vw, 27rem);
     align-items: start;
     justify-content: space-between;
-    gap: clamp(1.5rem, 3vw, 3rem);
+    gap: clamp(1rem, 1.4vw, 1.75rem);
   }
   .direction--heic-to-jpg .hero__support--tool > div { max-width: none; }
 
@@ -324,10 +336,11 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
     grid-row: 1;
     max-width: 11ch;
     color: #fafafa;
-    font-size: clamp(2.5rem, 5vw, 6rem);
+    /* Rozmiar jak „Your CAD stays yours." w PACKLY (var(--display)) — owner 2026-11-22. */
+    font-size: var(--display);
     font-weight: 700;
-    line-height: 0.88;
-    letter-spacing: -0.05em;
+    line-height: 0.86;
+    letter-spacing: -0.055em;
   }
 
   .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
@@ -337,16 +350,27 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
     display: block;
     grid-column: 2;
     grid-row: 1;
+    /* Wyrównanie do dołu (jak „Nothing saved. Nothing shared." w PACKLY): ostatnia linia
+       emerald ląduje na wysokości ostatniej linii białego hasła („never"). */
+    align-self: end;
     max-width: 16ch;
-    padding-top: 0.4em;
+    padding-top: 0;
     color: var(--accent);
-    font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+    /* Rozmiar jak emerald w PACKLY — owner 2026-11-22 (był 2.4vw / max 2.3rem). */
+    font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
   }
 
-  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2; max-width: 40ch; }
+  /* PL: hasło jest dłuższe („nie opuszczają Twojego urządzenia.") — cap 3.5rem, żeby
+     najdłuższe słowo („opuszczają") mieściło się w kolumnie i nie wchodziło na konwerter. */
+  html[lang="pl"] .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  html[lang="pl"] .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2; max-width: 40ch; margin-top: clamp(0.75rem, 1.2vw, 1.25rem); }
   .direction--heic-to-jpg .hero__support--tool .hero__actions {
     grid-column: 2;
     grid-row: 2;
@@ -357,8 +381,31 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   .direction--heic-to-jpg .hero__support--tool .hero__converter { grid-column: 3; grid-row: 1 / span 2; justify-self: end; }
 }
 
-/* Tablet / mały desktop: hasło w kolumnie 1, konwerter w kolumnie 2 (bez zmian). */
-@media (min-width: 901px) and (max-width: 1279px) {
+/* Tablet / mały desktop (901–1439 px): hasło w kolumnie 1, konwerter w kolumnie 2.
+   Typografia jak w PACKLY także tutaj (owner 2026-11-22) — białe hasło w var(--display),
+   emerald clamp(2rem, 6vw, 4rem), żeby przejście 1439 → 1440 px nie zmieniało rozmiaru. */
+@media (min-width: 901px) and (max-width: 1439px) {
+  .direction--heic-to-jpg .hero__support--tool .hero__title-lead,
+  .direction--heic-to-jpg .hero__support--tool .hero__title span:first-child,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title-lead,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title span:first-child {
+    font-size: var(--display);
+    line-height: 0.86;
+    letter-spacing: -0.055em;
+  }
+  .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child {
+    font-size: clamp(2rem, 6vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-top: 0.25em;
+  }
+  html[lang="pl"] .direction--heic-to-jpg .hero__support--tool .hero__title-tail,
+  html[lang="pl"] .direction--heic-to-jpg .hero__support--tool .hero__title span:last-child {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
   .direction--heic-to-jpg .hero__support--tool { grid-template-columns: minmax(0, 1fr) 27rem; }
   .direction--heic-to-jpg .hero__support--tool .hero__title { grid-column: 1; grid-row: 1; }
   .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2; }

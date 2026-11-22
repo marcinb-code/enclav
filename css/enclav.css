@@ -340,9 +340,14 @@ html[lang="pl"] body.direction--assigned:not(.direction--copy) .hero::before {
     max-height: min(60svh, 22rem);
     overflow: auto;
     padding: 0.9rem 1.15rem;
-    background: #0b0b10;
-    border: 1px solid rgba(52, 211, 153, 0.3);
+    /* Owner (2026-11-22): panel jak zamrożone (frosted) szkło — PÓŁPRZEZROCZYSTE tło
+       + rozmycie tego, co pod nim (animowany canvas hero). Wcześniej nieprzezroczysty #0b0b10. */
+    background: linear-gradient(160deg, rgba(24, 26, 34, 0.5), rgba(9, 9, 11, 0.3));
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid rgba(52, 211, 153, 0.28);
     border-radius: 14px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.07);
     text-align: right;
   }
   .mobile-nav__links > a,
