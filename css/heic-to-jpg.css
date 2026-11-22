@@ -44,19 +44,62 @@
 
 /* Kategoria TOOLS + oryginalny logo HEIC→JPG (heic→jpg) + hasło narzędzia.
    Hero w układzie dwukolumnowym ENCLAV: lewa kolumna = HEAD + opis, prawa = konwerter.
-   Logo heic→jpg mały i wyrównany do lewego marginesu razem z TOOLS. */
+   Wyrównanie HEAD/TOOLS/logo = kopia ustawienia z ENCLAV CREATE (hasło od lewego marginesu,
+   jedna kolumna). Logo heic→jpg mały, przy lewym marginesie pod TOOLS. */
 .direction--heic-to-jpg .hero { text-align: left; }
 .direction--heic-to-jpg .hero__eyebrow { display: block; margin: 0 0 0.6rem; color: var(--muted); font-size: 0.9rem; font-weight: 650; text-align: left; }
-.direction--heic-to-jpg .hero__title { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; max-width: 18ch; margin: 0; font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.05em; }
-.direction--heic-to-jpg .hero__title span { display: block; }
+
+/* Logo ENCLAV u góry — ten sam lewy margines co „Imagine what's next."
+   (tagline to blok wewnątrz .brand, więc oba wiersze startują z jednej krawędzi). */
+.direction--heic-to-jpg .brand { padding: 0; margin: 0; text-align: left; }
+.direction--heic-to-jpg .brand__tagline { margin: 0; text-align: left; }
+
+/* HEAD — jak w ENCLAV CREATE: do lewego marginesu, hasło w jednej kolumnie (span = blok),
+   bez flexowego rozrzutu z .direction--canvas-bg. Selektory PL powtarzają specyficzność
+   reguł `html[lang="pl"] .direction--canvas-bg …` z enclav.css, żeby nadpisać ich rozmiary
+   (inaczej PL dziedziczył --display = do 8rem i łamał kolumnę). */
+.direction--heic-to-jpg .hero__title,
+.direction--heic-to-jpg.direction--canvas-bg .hero__title,
+html[lang="pl"] .direction--canvas-bg .hero__title {
+  display: block;
+  max-width: 18ch;
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-align: left;
+}
+.direction--heic-to-jpg .hero__title span,
+.direction--heic-to-jpg.direction--canvas-bg .hero__title span,
+.direction--heic-to-jpg.direction--canvas-bg .hero__title span:first-child,
+.direction--heic-to-jpg.direction--canvas-bg .hero__title span:last-child,
+html[lang="pl"] .direction--canvas-bg .hero__title span,
+html[lang="pl"] .direction--canvas-bg .hero__title span:first-child,
+html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  white-space: normal;
+  text-align: left;
+}
 .direction--heic-to-jpg .hero__title span:first-child { color: #fafafa; }
 .direction--heic-to-jpg .hero__title span:last-child { color: var(--accent); }
-.direction--heic-to-jpg .hero__support { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: start; gap: clamp(2rem, 4vw, 3.5rem); margin-top: clamp(1.75rem, 4vw, 3rem); }
+
+/* Kolumny: hasło + opis po lewej (do 40ch), konwerter po prawej o STAŁEJ szerokości.
+   Szerokość konwertera jest podana w rem (nie w vw), więc panel nie rozciąga się razem
+   z oknem — cała jego zawartość (dropzone + jakość + maks. bok + ZIP + przyciski) jest
+   widoczna w standardowej szerokości okna. */
+.direction--heic-to-jpg .hero__support { display: grid; grid-template-columns: minmax(0, 1fr) 27rem; align-items: start; justify-content: space-between; gap: clamp(2rem, 4vw, 3.5rem); margin-top: clamp(1.75rem, 4vw, 3rem); }
 .direction--heic-to-jpg .hero__support > div { min-width: 0; }
-.direction--heic-to-jpg .hero__support > div:first-child { max-width: 46ch; }
-.direction--heic-to-jpg .hero__support > div:first-child p { max-width: 46ch; margin: 0 0 1rem; color: var(--muted); font-size: var(--body); line-height: 1.5; }
-.direction--heic-to-jpg .hero__intro .hero__title { margin-bottom: 1.25rem; }
-.direction--heic-to-jpg .hero__converter { min-width: 0; }
+.direction--heic-to-jpg .hero__support > div:first-child { max-width: 40ch; }
+/* Tekst pod HEAD — biały, czytelny na ciemnym tle (na żywej wersji spadał do
+   --accent-ink = #09090b, czyli czarny na czarnym). */
+.direction--heic-to-jpg .hero__intro p { max-width: 40ch; margin: 0 0 1rem; color: #fafafa; font-size: var(--lead); line-height: 1.4; }
+.direction--heic-to-jpg .hero__converter { width: 27rem; max-width: 100%; justify-self: end; }
 .direction--heic-to-jpg .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.5rem; }
 
 /* Oryginalny logo HEIC→JPG — font 'Borel' (self-hosted, /fonts/borel-*.woff2), wagą 400,
@@ -209,12 +252,24 @@
 
 @media (max-width: 900px) {
   .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; gap: 2rem; }
-  .direction--heic-to-jpg .hero__support > div:first-child { max-width: 42ch; }
+  .direction--heic-to-jpg .hero__support > div:first-child { max-width: none; }
+  .direction--heic-to-jpg .hero__converter { width: 100%; max-width: none; justify-self: stretch; }
+}
+
+@media (max-width: 1279px) {
+  /* Poniżej 1279px enclav.css przestawia hasło na blok z margin-top: 8rem i rozmiarami
+     mobile (do 7rem) oraz centruje CTA z paddingiem 12rem — tutaj wracamy do ustawienia
+     z CREATE: hasło zaraz pod TOOLS/logo, do lewej, CTA przy lewym marginesie. */
+  .direction--heic-to-jpg .hero__title,
+  .direction--heic-to-jpg.direction--canvas-bg .hero__title,
+  html[lang="pl"] .direction--canvas-bg .hero__title { display: block; margin: 0 0 clamp(1.25rem, 2.5vw, 2rem); }
+  .direction--heic-to-jpg .hero__intro p { font-size: var(--body); }
+  .direction--heic-to-jpg.direction--canvas-bg .hero__actions { flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; padding-bottom: 0; }
+  .direction--heic-to-jpg.direction--canvas-bg .hero__actions .button { width: auto; }
 }
 
 @media (max-width: 640px) {
-  .direction--heic-to-jpg .brand { font-size: 1.25rem; padding: 0 1rem; }
-  .direction--heic-to-jpg .hero__title { font-size: clamp(1.9rem, 7vw, 2.6rem); max-width: none; }
+  .direction--heic-to-jpg .brand { font-size: 1.25rem; padding: 0; }
   .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; align-items: start; }
   .direction--heic-to-jpg .hero__support > div:first-child p { max-width: 34ch; font-size: 1rem; }
   .direction--heic-to-jpg .hero__actions { flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; padding-bottom: 0; gap: 0.85rem 1rem; }
