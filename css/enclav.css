@@ -246,6 +246,8 @@ p { max-width: 68ch; text-wrap: pretty; }
   align-items: center;
   gap: .65rem;
   margin-left: .75rem;
+  position: relative;
+  top: -.04em;
   white-space: nowrap;
   vertical-align: middle;
 }
