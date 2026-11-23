@@ -89,19 +89,40 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .hero__title span:first-child { color: #fafafa; }
 .direction--heic-to-jpg .hero__title span:last-child { color: var(--accent); }
 
-/* D-029 (właściciel 2026-11-23): na telefonie pierwsza linia hasła („Your photos never” /
-   „Twoje zdjęcia nigdy”) ma rozmiar i styl pierwszej linii PACKLY („Your CAD stays yours.”):
-   clamp(3rem, 12vw, 4rem), line-height .86, letter-spacing -.025em, kolor #fafafa.
-   Druga linia („leave your device.” / „nie wychodzą z Twojego urządzenia.”) pozostaje
-   mniejsza i emerald — hierarchia jak na PACKLY. Nie zmniejszać pierwszej linii poniżej
-   drugiej bez wyraźnej instrukcji właściciela. */
-@media (max-width: 640px) {
+/* D-029/D-030 (właściciel 2026-11-23): przy zmniejszaniu szerokości okna hasło ma się
+   układać jak docelowo na telefonie — pierwsza linia („Your photos never” / „Twoje zdjęcia
+   nigdy”) większa, druga (emerald) mniejsza, ze skalą jak w PACKLY. Zakres: ≤900 px
+   (powyżej 900 px układ kolumnowy już używa wielkości/stylu PACKLY, więc przejście
+   900 → 901 px jest płynne: first 64 px → var(--display) ≈ 64,9 px; tail 6vw = 54 px). */
+@media (max-width: 900px) {
   .direction--heic-to-jpg .hero__title span:first-child,
   html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span:first-child,
   html[lang="pl"] .direction--canvas-bg .direction--heic-to-jpg .hero__title span:first-child {
     font-size: clamp(3rem, 12vw, 4rem);
     line-height: .86;
     letter-spacing: -.025em;
+  }
+  .direction--heic-to-jpg .hero__title span:last-child,
+  html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span:last-child,
+  html[lang="pl"] .direction--canvas-bg .direction--heic-to-jpg .hero__title span:last-child {
+    font-size: clamp(2rem, 6vw, 4rem);
+    line-height: .95;
+    letter-spacing: -.025em;
+  }
+  /* Grupa „zdjęcia nigdy” / „photos never” nie rozdziela się między wiersze. */
+  .direction--heic-to-jpg .hero__title span.hero__title-keep,
+  html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span.hero__title-keep {
+    white-space: nowrap;
+  }
+}
+
+/* Bardzo wąskie ekrany (≤359 px): min 3rem sprawiałoby, że grupa „zdjęcia nigdy”
+   (289 px @ 48px) wystaje poza kontener 285 px @ 320 — redukujemy tylko minimum. */
+@media (max-width: 359px) {
+  .direction--heic-to-jpg .hero__title span:first-child,
+  html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span:first-child,
+  html[lang="pl"] .direction--canvas-bg .direction--heic-to-jpg .hero__title span:first-child {
+    font-size: clamp(2.6rem, 12vw, 4rem);
   }
 }
 
@@ -454,3 +475,20 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   letter-spacing: -0.04em;
 }
 .direction--heic-to-jpg .closing p { max-width: 62ch; font-size: var(--lead); color: var(--ink); }
+
+/* ---------- D-029/D-030: reset grupy słów „zdjęcia nigdy” / „photos never” ----------
+   Musi być OSTATNI w pliku: wygrywa remisy specyficzności (0,5,2) z regułami kolumnowymi
+   ≥901 px, które inaczej traktowałyby span.hero__title-keep jak span:last-child hasła
+   (kolor emerald, rozmiar tail) albo jak blok (łamanie linii). Na desktopie grupa łamie
+   się naturalnie — nowrap obowiązuje wyłącznie w bloku ≤900 px powyżej. */
+.direction--heic-to-jpg .hero__title span.hero__title-keep,
+html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span.hero__title-keep,
+html[lang] .direction--heic-to-jpg .hero__support--tool .hero__title span.hero__title-keep,
+html[lang="pl"] .direction--canvas-bg .direction--heic-to-jpg .hero__title span.hero__title-keep,
+html[lang="pl"] .direction--heic-to-jpg .hero__support--tool .hero__title span.hero__title-keep {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
