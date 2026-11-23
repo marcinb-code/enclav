@@ -1,63 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://enclav.cc/pl/create</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/create"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/create"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/create"/>
+    <loc>https://www.enclav.cc/pl/create</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/create"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/create"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/create"/>
   </url>
   <url>
-    <loc>https://enclav.cc/en/create</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/create"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/create"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/create"/>
+    <loc>https://www.enclav.cc/en/create</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/create"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/create"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/create"/>
   </url>
   <url>
-    <loc>https://enclav.cc/pl/copy</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/copy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/copy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/copy"/>
+    <loc>https://www.enclav.cc/pl/copy</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/copy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/copy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/copy"/>
   </url>
   <url>
-    <loc>https://enclav.cc/en/copy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/copy"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/copy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/copy"/>
+    <loc>https://www.enclav.cc/en/copy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/copy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/copy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/copy"/>
   </url>
   <url>
-    <loc>https://enclav.cc/pl/private-ai</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/private-ai"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/private-ai"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/private-ai"/>
+    <loc>https://www.enclav.cc/pl/private-ai</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/private-ai"/>
   </url>
   <url>
-    <loc>https://enclav.cc/en/private-ai</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/private-ai"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/private-ai"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/private-ai"/>
+    <loc>https://www.enclav.cc/en/private-ai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/private-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/private-ai"/>
   </url>
   <url>
-    <loc>https://enclav.cc/pl/packly</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/packly"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly"/>
+    <loc>https://www.enclav.cc/pl/packly</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/packly"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/packly"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/packly"/>
   </url>
   <url>
-    <loc>https://enclav.cc/en/packly</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/packly"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/packly"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/packly"/>
+    <loc>https://www.enclav.cc/en/packly</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/packly"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/packly"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/packly"/>
   </url>
   <url>
-    <loc>https://enclav.cc/pl/heic-to-jpg/</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/heic-to-jpg/"/>
+    <loc>https://www.enclav.cc/pl/heic-to-jpg/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/heic-to-jpg/"/>
   </url>
   <url>
-    <loc>https://enclav.cc/en/heic-to-jpg/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://enclav.cc/en/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://enclav.cc/pl/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://enclav.cc/en/heic-to-jpg/"/>
+    <loc>https://www.enclav.cc/en/heic-to-jpg/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/heic-to-jpg/"/>
+  </url>
+  <url>
+    <loc>https://www.enclav.cc/pl/home</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/home"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/home"/>
+  </url>
+  <url>
+    <loc>https://www.enclav.cc/en/home</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/home"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/home"/>
   </url>
 </urlset>
