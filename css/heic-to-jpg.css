@@ -257,8 +257,6 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 @keyframes enclav-heic-out-b { 0%, 20% { opacity: 0; transform: translateX(0); } 21% { opacity: 1; transform: translateX(0); } 28% { opacity: 1; transform: translateX(40px); } 30%, 100% { opacity: 0; transform: translateX(40px); } }
 @keyframes enclav-heic-out-av { 0%, 3% { opacity: 0; transform: translateY(0); } 4% { opacity: 1; transform: translateY(0); } 11% { opacity: 1; transform: translateY(44px); } 13%, 100% { opacity: 0; transform: translateY(44px); } }
 @keyframes enclav-heic-out-bv { 0%, 20% { opacity: 0; transform: translateY(0); } 21% { opacity: 1; transform: translateY(0); } 28% { opacity: 1; transform: translateY(44px); } 30%, 100% { opacity: 0; transform: translateY(44px); } }
-@keyframes enclav-heic-dead { 0%, 49% { opacity: 0; transform: translateX(0); } 50% { opacity: 0.9; transform: translateX(0); } 53% { opacity: 0.9; transform: translateX(28px); } 54%, 100% { opacity: 0; transform: translateX(28px); } }
-@keyframes enclav-heic-deadv { 0%, 49% { opacity: 0; transform: translateY(0); } 50% { opacity: 0.9; transform: translateY(0); } 53% { opacity: 0.9; transform: translateY(30px); } 54%, 100% { opacity: 0; transform: translateY(30px); } }
 @keyframes enclav-heic-cards-dim { 0%, 54% { opacity: 1; } 58% { opacity: 0.22; } 84% { opacity: 0.22; } 88%, 100% { opacity: 1; } }
 @keyframes enclav-heic-finale-in { 0%, 56% { opacity: 0; } 60% { opacity: 1; } 84% { opacity: 1; } 88%, 100% { opacity: 0; } }
 @keyframes enclav-heic-rot-cw { to { transform: rotate(360deg); } }
@@ -274,8 +272,6 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .a-out2 { animation: enclav-heic-out-b 24s linear infinite; }
 .direction--heic-to-jpg .a-out1v { animation: enclav-heic-out-av 24s linear infinite; }
 .direction--heic-to-jpg .a-out2v { animation: enclav-heic-out-bv 24s linear infinite; }
-.direction--heic-to-jpg .a-dead { animation: enclav-heic-dead 24s linear infinite; }
-.direction--heic-to-jpg .a-deadv { animation: enclav-heic-deadv 24s linear infinite; }
 .direction--heic-to-jpg .a-pcard { animation: enclav-heic-cards-dim 24s linear infinite; }
 .direction--heic-to-jpg .a-finale { animation: enclav-heic-finale-in 24s linear infinite; }
 .direction--heic-to-jpg .a-rot1 { animation: enclav-heic-rot-cw 2.2s linear infinite; transform-box: fill-box; transform-origin: center; }
