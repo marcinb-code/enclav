@@ -89,6 +89,22 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .hero__title span:first-child { color: #fafafa; }
 .direction--heic-to-jpg .hero__title span:last-child { color: var(--accent); }
 
+/* D-029 (właściciel 2026-11-23): na telefonie pierwsza linia hasła („Your photos never” /
+   „Twoje zdjęcia nigdy”) ma rozmiar i styl pierwszej linii PACKLY („Your CAD stays yours.”):
+   clamp(3rem, 12vw, 4rem), line-height .86, letter-spacing -.025em, kolor #fafafa.
+   Druga linia („leave your device.” / „nie wychodzą z Twojego urządzenia.”) pozostaje
+   mniejsza i emerald — hierarchia jak na PACKLY. Nie zmniejszać pierwszej linii poniżej
+   drugiej bez wyraźnej instrukcji właściciela. */
+@media (max-width: 640px) {
+  .direction--heic-to-jpg .hero__title span:first-child,
+  html[lang] .direction--heic-to-jpg.direction--canvas-bg .hero__title span:first-child,
+  html[lang="pl"] .direction--canvas-bg .direction--heic-to-jpg .hero__title span:first-child {
+    font-size: clamp(3rem, 12vw, 4rem);
+    line-height: .86;
+    letter-spacing: -.025em;
+  }
+}
+
 /* Kolumny: hasło + opis po lewej (do 40ch), konwerter po prawej o STAŁEJ szerokości.
    Szerokość konwertera jest podana w rem (nie w vw), więc panel nie rozciąga się razem
    z oknem — cała jego zawartość (dropzone + jakość + maks. bok + ZIP + przyciski) jest
