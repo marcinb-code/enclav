@@ -518,6 +518,20 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 }
 .direction--heic-to-jpg .closing p { max-width: 62ch; font-size: var(--lead); color: var(--ink); }
 
+/* ---------- D-032: blok #create-cta (owner 2026-11-23): cały blok emerald, button czarny.
+   Heading ciemny (--accent-ink) — nadpisuje `.direction--canvas-bg .closing h2` (emerald). */
+.direction--heic-to-jpg #create-cta {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+.direction--heic-to-jpg #create-cta h2 {
+  color: var(--accent-ink);
+}
+.direction--heic-to-jpg #create-cta .button--black {
+  background: var(--ground);
+  color: #ffffff;
+}
+
 /* ---------- D-029/D-030: reset grupy słów „zdjęcia nigdy” / „photos never” ----------
    Musi być OSTATNI w pliku: wygrywa remisy specyficzności (0,5,2) z regułami kolumnowymi
    ≥901 px, które inaczej traktowałyby span.hero__title-keep jak span:last-child hasła
