@@ -108,6 +108,10 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
     font-size: clamp(2rem, 6vw, 4rem);
     line-height: .95;
     letter-spacing: -.025em;
+    /* Owner (2026-11-23): emerald-tail schodzi niżej na mobile — litera „l”
+       („leave your device.” / „nie wychodzą…”) nie może dotykać wiersza
+       „photos never” / „zdjęcia nigdy” powyżej. */
+    margin-top: clamp(0.6rem, 2.2vw, 1.1rem);
   }
   /* Grupa „zdjęcia nigdy” / „photos never” nie rozdziela się między wiersze. */
   .direction--heic-to-jpg .hero__title span.hero__title-keep,
@@ -185,7 +189,9 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .privacy-proof code { color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
 
 /* ---------- PANEL: konwerter (oryginalny silnik, układ ENCLAV — prawa kolumna hero) ---------- */
-.direction--heic-to-jpg .converter { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(1rem, 2vw, 1.5rem); }
+/* position: relative — zakładka badge'a (Zdjęcia nie są wysyłane) jest kotwiczona
+   do górnej krawędzi panelu (owner 2026-11-23). */
+.direction--heic-to-jpg .converter { position: relative; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(1rem, 2vw, 1.5rem); }
 .direction--heic-to-jpg .converter .section-heading { margin: 0 0 12px; letter-spacing: -0.2px; max-width: 20ch; }
 
 /* Ikonki SVG (dropzone, kafelki) — oryginał nie ustawiał rozmiaru, tu jawny rozmiar. */
@@ -222,6 +228,13 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .badge.err { background: rgba(248, 113, 113, 0.12); color: var(--danger); }
 .direction--heic-to-jpg .dl { font-size: 13px; font-weight: 700; color: var(--blue-soft); white-space: nowrap; }
 .direction--heic-to-jpg .actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+
+/* Prywatność wewnątrz konwertera (owner 2026-11-23): badge jako zakładka przyklejona
+   do górnej krawędzi panelu (te same kolory/styl co .privacy-badge), a status live
+   i licznik Resource Timing przeniesione spod sekcji #privacy pod przyciski. */
+.direction--heic-to-jpg .converter__badge { position: absolute; bottom: 100%; left: 0; margin: 0; }
+.direction--heic-to-jpg .converter .live-status { margin-top: 14px; }
+.direction--heic-to-jpg .converter .net-monitor { margin: 10px 0 0; }
 
 /* ---------- SEKCJA: dlaczego / jak działa (trzy kafelki z ikonami oryginału) ---------- */
 .direction--heic-to-jpg .why { display: grid; gap: 10px; margin-top: clamp(2rem, 4vw, 3rem); }
@@ -293,13 +306,17 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--heic-to-jpg .faq details + details { margin-top: 10px; }
 .direction--heic-to-jpg .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 .direction--heic-to-jpg .faq details p { margin: 10px 0 0; color: var(--muted); }
+/* Wyróżnienie kluczowego zdania w odpowiedziach FAQ (np. Windows/kodeki, owner 2026-11-23). */
+.direction--heic-to-jpg .faq details p strong { color: var(--ink); font-weight: 700; }
 
 /* Stopka narzędzia (globalny footer ENCLAV wykorzystywany z modułu). */
 
 @media (max-width: 900px) {
   .direction--heic-to-jpg .hero__support { grid-template-columns: 1fr; gap: 2rem; }
   .direction--heic-to-jpg .hero__support > div:first-child { max-width: none; }
-  .direction--heic-to-jpg .hero__converter { width: 100%; max-width: none; justify-self: stretch; }
+  /* Miejsce na zakładkę badge'a wystającą ponad górną krawędź konwertera
+     (nie może nachodzić na rząd przycisków powyżej — owner 2026-11-23). */
+  .direction--heic-to-jpg .hero__converter { width: 100%; max-width: none; justify-self: stretch; margin-top: 3.25rem; }
 }
 
 @media (max-width: 1279px) {
