@@ -853,7 +853,14 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
   gap: clamp(2rem, 4vw, 4.5rem);
 }
 .direction--canvas-bg .home-hero__intro { grid-area: intro; min-width: 0; }
-.direction--canvas-bg .home-hero .hero__support { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+/* Właściciel 2026-11-23 (feedback homepage REV1): z dwóch akapitów supportu hero
+   muszą być w jednej kolumnie (grid base ma 2 kolumny: 1fr + auto — akapit drugi
+   trafiłby do pustej kolumny). */
+.direction--canvas-bg .home-hero .hero__support { grid-template-columns: minmax(0, 1fr); margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+/* Druga linia supportu (biała, normalnej wagi) — kontrast dla bold-emerald pierwszej
+   linii (offer). Kolor/weight z reguł canvas-bg piszemy scoped, żeby nie wpływać na
+   inne strony (CREATE/COPY), gdzie support ma 1 akapit. */
+.direction--canvas-bg .home-hero .hero__support p + p { color: var(--ink); font-weight: 400; }
 .direction--canvas-bg .home-hero__cards { grid-area: cards; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 
 /* Hero hasło: wariant homepage — kazdy span to jedna linia (stack), bez rozciagania
@@ -884,7 +891,10 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
 .direction--canvas-bg .home-card__tagline { margin: 0; font-size: clamp(1.2rem, 1.8vw, 1.65rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--accent-ink); }
 .direction--canvas-bg .home-card__services { list-style: none; margin: clamp(1rem, 2vw, 1.5rem) 0 0; padding: 0; }
 .direction--canvas-bg .home-card__services li { padding-top: 0.55rem; border-top: 1px solid rgba(9, 9, 11, 0.28); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.02em; line-height: 1.4; }
-.direction--canvas-bg .home-card__cta { margin-top: auto; }
+/* Właściciel 2026-11-23: CTA na karcie — pogrubione (700) tak strzałka ➜ (U+279C, gruby)
+   jest natychmiast czytelna; wykończenie „thick+bold+emerald” z FINAL VISUAL DIRECTIVE
+   (PACKLY REV6.4) w praktyce = gruby glyph + pogrubiona etykieta CTA. */
+.direction--canvas-bg .home-card .home-card__cta { margin-top: auto; font-weight: 700; }
 
 /* ENCLAV LABS — sekcja wtórna (produkty własne). Tło transparentne nad tłem
    canvas-bg; karty produktywne w restryktowanym stylu (subtle elevated + border). */
@@ -897,7 +907,10 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
 .home-product__desc { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
 .home-product__status { margin: 0; }
 .home-product__pill { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em; color: #34d399; background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 999px; padding: 0.12em 0.5em; white-space: nowrap; }
-.home-product__link { margin-top: auto; color: var(--accent); font-weight: 650; text-decoration: none; }
+/* Właściciel 2026-11-23: CTA/labs link z strzałką (➜ U+279C gruby) — pogrubione (700),
+   emerald (akcent) — zgodnie z FINAL VISUAL DIRECTIVE (PACKLY REV6.4, owner fix REV6.4:
+   „arrows must be unmistakable. Use ➜. Not: →. They must be thick, bold, emerald…”). */
+.home-product__link { margin-top: auto; color: var(--accent); font-weight: 700; text-decoration: none; }
 .home-product__link:hover { color: var(--accent); }
 
 /* CONTACT na homepage — reuse istniejącej sekcji .closing z CREATE (h2, p, CTA emerald). */
