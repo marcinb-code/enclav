@@ -141,8 +141,10 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
    .hero__intro p, a wrapper musi dostać pełną szerokość (siatka 2-kolumnowa na desktopie). */
 .direction--heic-to-jpg .hero__support > div:first-child { max-width: none; }
 /* Tekst pod HEAD — biały, czytelny na ciemnym tle (na żywej wersji spadał do
-   --accent-ink = #09090b, czyli czarny na czarnym). */
+   --accent-ink = #09090b, czyli czarny na czarnym). Pierwszy akapit intro — emerald,
+   jak support-line na CREATE/COPY (owner 2026-11-23). */
 .direction--heic-to-jpg .hero__intro p { max-width: 40ch; margin: 0 0 1rem; color: #fafafa; font-size: var(--lead); line-height: 1.4; }
+.direction--heic-to-jpg .hero__intro p:first-child { color: var(--accent); }
 .direction--heic-to-jpg .hero__converter { width: 27rem; max-width: 100%; justify-self: end; }
 .direction--heic-to-jpg .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.5rem; }
 
@@ -453,7 +455,7 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
     justify-self: start;
     margin: 1rem 0 0;
   }
-  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2 / span 2; align-self: start; max-width: 40ch; margin-top: clamp(0.75rem, 1.2vw, 1.25rem); }
+  .direction--heic-to-jpg .hero__support--tool .hero__intro { grid-column: 1; grid-row: 2 / span 2; align-self: start; max-width: 40ch; /* Owner (2026-11-23): tekst obniżony pod hasłem tak jak w CREATE/COPY/PACKLY (margin-top .hero__support na tamtych stronach). */ margin-top: clamp(1.75rem, 4vw, 3.25rem); }
   .direction--heic-to-jpg .hero__support--tool .hero__actions {
     grid-column: 2;
     grid-row: 3;
