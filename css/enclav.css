@@ -831,3 +831,96 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
 .direction--canvas-bg .contact-form__close:hover {
   color: #10b981;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ENCLAV HOMEPAGE — REV1 (brief 2026-11-23) — nowa centralna strona główna
+   (/en/home, /pl/home). Sekcje: HERO (dwie kolumny: intro + karty CREATE/COPY),
+   ENCLAV LABS (produkty własne), CONTACT (reuse .closing z CREATE).
+
+   Tło strony: WYŁĄCZNIE istniejący system canvas-bg — body.direction--canvas-bg,
+   gradient .direction--canvas-bg::before, <canvas id="bgCanvas"> z js/canvas-bg.js.
+   Żadnych nowych warstw/gradientów/animacji na homepage. Layout dopasowuje się
+   do istniejących tokenów (--ground/--surface/--ink/--muted/--accent/--line, --page-gutter).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Hero: dwie kolumny — intro (lewa) + karty usług (prawa). Wspólna siła tła
+   canvas-bg zachowana (canvas fixed nad gradientem, treść .hero__content z-index 10). */
+.direction--canvas-bg .home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas: "intro cards";
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+.direction--canvas-bg .home-hero__intro { grid-area: intro; min-width: 0; }
+.direction--canvas-bg .home-hero .hero__support { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.direction--canvas-bg .home-hero__cards { grid-area: cards; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+
+/* Hero hasło: wariant homepage — kazdy span to jedna linia (stack), bez rozciagania
+   flex space-between z CREATE/COPY (tam spany trafiaja na jedna linie). Kolory i
+   rozmiar pochodza z istniejących regli canvas-bg (.direction--canvas-bg .hero__title
+   span:first-child = biały, span:last-child = emerald; PL: span1 duzy/biały, span2). */
+.direction--canvas-bg .home-hero .hero__title { display: block; margin-top: 0; font-size: clamp(2.2rem, min(4.2vw, 90px), 7rem); }
+html[lang="pl"] .direction--canvas-bg .home-hero .hero__title { display: block; }
+html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: clamp(2.2rem, min(4.0vw, 90px), 7rem); }
+html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { font-size: clamp(1.7rem, min(3vw, 54px), 3rem); }
+
+/* Karta usługi — emerald (#34d399) z ciemnym tekstem (#09090b), wariant homepage.
+   Geometria: kompaktowa, duża wewnętrzna ciasność, hover/focus z zachowaniem globalnym. */
+.direction--canvas-bg .home-card {
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(16rem, 23vw, 21rem);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: 18px;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.direction--canvas-bg .home-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35); }
+.direction--canvas-bg .home-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.direction--canvas-bg .home-card__title { margin: 0 0 clamp(0.5rem, 1vw, 0.85rem); font-size: clamp(1.5rem, 2.2vw, 2.1rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; color: var(--accent-ink); }
+.direction--canvas-bg .home-card__tagline { margin: 0; font-size: clamp(1.2rem, 1.8vw, 1.65rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--accent-ink); }
+.direction--canvas-bg .home-card__services { list-style: none; margin: clamp(1rem, 2vw, 1.5rem) 0 0; padding: 0; }
+.direction--canvas-bg .home-card__services li { padding-top: 0.55rem; border-top: 1px solid rgba(9, 9, 11, 0.28); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.02em; line-height: 1.4; }
+.direction--canvas-bg .home-card__cta { margin-top: auto; }
+
+/* ENCLAV LABS — sekcja wtórna (produkty własne). Tło transparentne nad tłem
+   canvas-bg; karty produktywne w restryktowanym stylu (subtle elevated + border). */
+.home-labs { padding: clamp(3.5rem, 8vw, 6rem) var(--page-gutter); }
+.home-labs__eyebrow { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; font-weight: 650; }
+.home-labs__title { max-width: 24ch; margin: 0 0 clamp(2rem, 5vw, 3.5rem); font-size: clamp(1.9rem, 3.4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.035em; }
+.home-labs__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.home-product { display: flex; flex-direction: column; gap: 0.6rem; padding: clamp(1.5rem, 2.5vw, 2rem); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.home-product__title { margin: 0; font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+.home-product__desc { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+.home-product__status { margin: 0; }
+.home-product__pill { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em; color: #34d399; background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 999px; padding: 0.12em 0.5em; white-space: nowrap; }
+.home-product__link { margin-top: auto; color: var(--accent); font-weight: 650; text-decoration: none; }
+.home-product__link:hover { color: var(--accent); }
+
+/* CONTACT na homepage — reuse istniejącej sekcji .closing z CREATE (h2, p, CTA emerald). */
+
+/* Responsive — homepage: tablet ≤1024 (hero i labs do jednej kolumny, karty 2-kol),
+   mobile ≤760 (hero, karty, labs). Layout dopasowany do istniejących breakpointów. */
+@media (max-width: 1024px) {
+  .direction--canvas-bg .home-hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "cards"; align-items: start; gap: 2.5rem; }
+  .direction--canvas-bg .home-hero__intro { width: 100%; }
+  .direction--canvas-bg .home-hero__cards { width: 100%; }
+  .direction--canvas-bg .home-hero .hero__title { font-size: var(--display); }
+  html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: var(--display); }
+  html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { font-size: clamp(1.7rem, 4vw, 3rem); }
+  .home-labs { padding: clamp(3rem, 7vw, 5rem) var(--page-gutter); }
+  .home-labs__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .direction--canvas-bg .home-hero { gap: 2rem; }
+  .direction--canvas-bg .home-hero__cards { grid-template-columns: 1fr; }
+  .direction--canvas-bg .home-card { min-height: 0; }
+  .direction--canvas-bg .home-hero .hero__support { margin-top: 1.5rem; }
+  .direction--canvas-bg .home-hero .hero__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .home-labs { padding: clamp(2.5rem, 6vw, 4rem) var(--page-gutter); }
+}
