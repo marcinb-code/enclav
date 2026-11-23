@@ -53,7 +53,9 @@
         <span class="logo-heic">heic</span><span class="logo-arrow">→</span><span class="logo-jpg">jpg</span>
       </a>
       <div class="hero__support hero__support--tool">
+        <div class="hero__headline">
         <h1 class="hero__title"><span class="hero__title-lead">Twoje <span class="hero__title-keep">zdjęcia nigdy</span></span><span class="hero__title-tail">nie wychodzą z Twojego urządzenia.</span></h1>
+        <span class="privacy-badge hero__badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> <span data-i18n="badge">Zdjęcia nie są wysyłane</span></span>
         <div class="hero__intro">
           <p data-i18n="conv_intro">Darmowy konwerter HEIC na JPG. Konwertuj zdjęcia HEIC i HEIF bezpośrednio w przeglądarce. Przetwarzanie odbywa się lokalnie, bez przesyłania plików na serwer.</p>
           <p data-i18n="tool_hero_c">Bez konta i bez opłat. Konwertuj wiele zdjęć jednocześnie i pobieraj wyniki pojedynczo lub w archiwum ZIP.</p>
@@ -61,8 +63,8 @@
         <div class="hero__actions">
           <a class="button" href="#how" data-i18n="how">Jak to działa</a>
         </div>
+        </div>
         <div class="hero__converter converter" id="converter" role="region" aria-label="Konwerter HEIC na JPG">
-          <span class="privacy-badge converter__badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> <span data-i18n="badge">Zdjęcia nie są wysyłane</span></span>
           <h2 class="sr-only">Darmowy konwerter HEIC na JPG</h2>
           <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Wybierz lub przeciągnij pliki HEIC">
             <div><svg class="ic ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 7l1.2-2h4.6L15.5 7"/></svg></div>
@@ -99,7 +101,7 @@
           <div class="net-monitor" aria-live="polite">
             <span class="nm-line"><span data-i18n="net_since">Od załadowania strony</span>: <b><span id="netCount">0</span> <span data-i18n="net_req">żądań</span> · <span id="netBytes">0 B</span></b></span>
             <span class="nm-line"><span data-i18n="net_conv">Podczas konwersji</span>: <b><span id="netConv">0</span> <span data-i18n="net_req">żądań</span> · <span id="netConvBytes">0 B</span></b></span>
-            <span class="nm-line nm-note" data-i18n="net_note">Licznik opiera się na API Resource Timing przeglądarki i pokazuje żądania zasobów strony oraz pobrane bajty. Konwerter nie ma funkcji wysyłania plików, a CSP ogranicza wybrane połączenia sieciowe.</span>
+            <span class="nm-line nm-note" data-i18n="net_note">Licznik opiera się na API Resource Timing przeglądarki i pokazuje żądania zasobów strony oraz pobrane bajty. Konwerter nie ma funkcji wysyłania plików, a Content-Security-Policy ogranicza wybrane połączenia sieciowe.</span>
           </div>
         </div>
       </div>
