@@ -231,29 +231,9 @@
     if (!pick(s, to)) { s.stuck = true; s.wait = 8; }
     return true;
   }
-  var last = performance.now(), t0 = last, acc = 0, formShown = false, isTouch = matchMedia('(pointer: coarse)').matches;
+  var last = performance.now(), t0 = last, acc = 0, isTouch = matchMedia('(pointer: coarse)').matches;
 
   var addPointerMove = !isTouch;
-
-  function showContactForm() {
-    var form = document.getElementById('contact-form');
-    if (!form) { return; }
-    form.style.display = 'block';
-    form.style.opacity = 1;
-    form.style.visibility = 'visible';
-    formShown = true;
-    document.body.classList.add('contact-form-open');
-    try { form.scrollIntoView({behavior: 'smooth', block: 'start'}); } catch(e) {}
-  }
-
-  function hideContactForm() {
-    var form = document.getElementById('contact-form');
-    if (form) {
-      form.style.display = 'none';
-      document.body.classList.remove('contact-form-open');
-      formShown = false;
-    }
-  }
 
   function frame(now) {
     if (reduced) { return; }
@@ -394,21 +374,9 @@
 
   build();
 
-  var contactBtns = document.querySelectorAll('a.button[href="#contact-note"]');
-  contactBtns.forEach(function(contactBtn) {
-    contactBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      showContactForm();
-    });
-  });
-
-  var closeBtn = document.querySelector('.contact-form__close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      hideContactForm();
-    });
-  }
+  /* D-027: formularz kontaktowy pozostaje UKRYTY do wyraźnego polecenia właściciela.
+     Usunięto programowe otwieranie #contact-form (dawniej: a.button[href="#contact-note"]).
+     Nie dodawać openera bez decyzji właściciela — pilnuje tego tools/check-cta-contract.cjs. */
 
   if (!reduced) {
     requestAnimationFrame(frame);
