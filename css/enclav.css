@@ -898,11 +898,12 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
    zapada się do 0 (karta równa treści). */
 .direction--canvas-bg .home-card__services { list-style: none; margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2.5vw, 2rem); padding: 0; }
 .direction--canvas-bg .home-card__services li { padding-top: 0.55rem; border-top: 1px solid rgba(9, 9, 11, 0.28); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.02em; line-height: 1.4; }
-/* Owner 2026-11-23 (pkt 2): CTA na karcie — pogrubione (700); strzałka ➜ (U+279C, gruba)
-   w osobnym dekoracyjnym spanie (.cta-arrow), żeby dało się niezależnie odchudzić ją
-   na mobile (pkt 1). Gap (.4em) utrzymuje odstęp tekst–strzałka w inline-flex buttonie. */
+/* Owner 2026-11-23 (pkt 2): CTA na karcie — pogrubione (700); strzałka rysowana z CSS
+   (::before) w dekoracyjnym spanie .cta-arrow, żeby dało się niezależnie zmieniać glyph:
+   desktop = gruba ➜ (U+279C, 700), mobile = cienka → (U+2192, 400 — wersja „z początku”,
+   która była ładna na mobile). Gap (.4em) utrzymuje odstęp tekst–strzałka w inline-flex. */
 .direction--canvas-bg .home-card .home-card__cta { margin-top: auto; font-weight: 700; gap: .4em; }
-.direction--canvas-bg .cta-arrow { font-weight: 700; }
+.direction--canvas-bg .cta-arrow::before { content: "➜"; font-weight: 700; }
 
 /* ENCLAV LABS — sekcja wtórna (produkty własne). Tło transparentne nad tłem
    canvas-bg; karty produktywne w restryktowanym stylu (subtle elevated + border). */
@@ -943,8 +944,9 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
   .direction--canvas-bg .home-hero .hero__support { margin-top: 1.5rem; }
   .direction--canvas-bg .home-hero .hero__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: clamp(2.5rem, 10vw, 3.5rem); }
-  /* Owner 2026-11-23 (pkt 1): mobile — strzałki za grube → cieńsze (400) i minimalnie mniejsze. */
-  .direction--canvas-bg .cta-arrow { font-weight: 400; font-size: 0.95em; }
+  /* Owner 2026-11-23 (pkt 1): mobile — strzałki z powrotem cienkie (thin → U+2192, 400),
+     jak „na początku”; gruba ➜ zostaje wyłącznie na desktopie. */
+  .direction--canvas-bg .cta-arrow::before { content: "→"; font-weight: 400; }
   /* Owner 2026-11-23 (pkt 5): mobile — buttony Poznaj CREATE/COPY węższe (shrink-to-fit)
      i wyśrodkowane w polu pod tekstem (domyślne stretch flexa dawało pełną szerokość). */
   .direction--canvas-bg .home-card .home-card__cta { align-self: center; }
