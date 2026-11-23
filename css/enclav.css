@@ -868,7 +868,11 @@ html[lang="pl"] .direction--canvas-bg .hero__title span:last-child {
    rozmiar pochodza z istniejących regli canvas-bg (.direction--canvas-bg .hero__title
    span:first-child = biały, span:last-child = emerald; PL: span1 duzy/biały, span2). */
 .direction--canvas-bg .home-hero .hero__title { display: block; margin-top: 0; font-size: clamp(2.2rem, min(4.2vw, 90px), 7rem); }
-html[lang="pl"] .direction--canvas-bg .home-hero .hero__title { display: block; }
+/* Owner 2026-11-23: PL wielka linia hero za ściśnięta — letter-spacing dziedziczony jest
+   jako wyliczona wartość px z h1 (PL h1 dziedziczył font-size var(--display) = 103.68px,
+   więc span dostawał -5.7px przy fs 57.6px = -0.099em). Po zmianie PL h1 ma tę samą skalę
+   co EN, a -.055em liczy się od fs samego spanu — odstępy identyczne jak w EN. */
+html[lang="pl"] .direction--canvas-bg .home-hero .hero__title { display: block; font-size: clamp(2.2rem, min(4.0vw, 90px), 7rem); }
 html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: clamp(2.2rem, min(4.0vw, 90px), 7rem); }
 html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { font-size: clamp(1.7rem, min(3vw, 54px), 3rem); }
 
@@ -889,12 +893,16 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
 .direction--canvas-bg .home-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .direction--canvas-bg .home-card__title { margin: 0 0 clamp(0.5rem, 1vw, 0.85rem); font-size: clamp(1.5rem, 2.2vw, 2.1rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; color: var(--accent-ink); }
 .direction--canvas-bg .home-card__tagline { margin: 0; font-size: clamp(1.2rem, 1.8vw, 1.65rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--accent-ink); }
-.direction--canvas-bg .home-card__services { list-style: none; margin: clamp(1rem, 2vw, 1.5rem) 0 0; padding: 0; }
+/* Owner 2026-11-23 (pkt 4): button Poznaj CREATE/COPY odsunięty od listy usług —
+   dolny margines listy daje minimalny odstęp także wtedy, gdy margin-top:auto CTA
+   zapada się do 0 (karta równa treści). */
+.direction--canvas-bg .home-card__services { list-style: none; margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2.5vw, 2rem); padding: 0; }
 .direction--canvas-bg .home-card__services li { padding-top: 0.55rem; border-top: 1px solid rgba(9, 9, 11, 0.28); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.02em; line-height: 1.4; }
-/* Właściciel 2026-11-23: CTA na karcie — pogrubione (700) tak strzałka ➜ (U+279C, gruby)
-   jest natychmiast czytelna; wykończenie „thick+bold+emerald” z FINAL VISUAL DIRECTIVE
-   (PACKLY REV6.4) w praktyce = gruby glyph + pogrubiona etykieta CTA. */
-.direction--canvas-bg .home-card .home-card__cta { margin-top: auto; font-weight: 700; }
+/* Owner 2026-11-23 (pkt 2): CTA na karcie — pogrubione (700); strzałka ➜ (U+279C, gruba)
+   w osobnym dekoracyjnym spanie (.cta-arrow), żeby dało się niezależnie odchudzić ją
+   na mobile (pkt 1). Gap (.4em) utrzymuje odstęp tekst–strzałka w inline-flex buttonie. */
+.direction--canvas-bg .home-card .home-card__cta { margin-top: auto; font-weight: 700; gap: .4em; }
+.direction--canvas-bg .cta-arrow { font-weight: 700; }
 
 /* ENCLAV LABS — sekcja wtórna (produkty własne). Tło transparentne nad tłem
    canvas-bg; karty produktywne w restryktowanym stylu (subtle elevated + border). */
@@ -935,5 +943,10 @@ html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:last-child { 
   .direction--canvas-bg .home-hero .hero__support { margin-top: 1.5rem; }
   .direction--canvas-bg .home-hero .hero__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   html[lang="pl"] .direction--canvas-bg .home-hero .hero__title span:first-child { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  /* Owner 2026-11-23 (pkt 1): mobile — strzałki za grube → cieńsze (400) i minimalnie mniejsze. */
+  .direction--canvas-bg .cta-arrow { font-weight: 400; font-size: 0.95em; }
+  /* Owner 2026-11-23 (pkt 5): mobile — buttony Poznaj CREATE/COPY węższe (shrink-to-fit)
+     i wyśrodkowane w polu pod tekstem (domyślne stretch flexa dawało pełną szerokość). */
+  .direction--canvas-bg .home-card .home-card__cta { align-self: center; }
   .home-labs { padding: clamp(2.5rem, 6vw, 4rem) var(--page-gutter); }
 }
