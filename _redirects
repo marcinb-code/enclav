@@ -1,3 +1,4 @@
-# D-015 (2026-11-19, decyzja właściciela): korzeń tymczasowo prowadzi do EN CREATE EN.
-# Wcześniejsze `/ https://packly.cc/ 302` wyłączone — enclav.cc będzie domeną tej strony.
-/ /en/create 302
+# D-015 (2026-11-19) → ZAKTUALIZOWANE decyzją właściciela 2026-11-23 (D-031):
+# korzeń prowadzi do nowej centralnej strony głównej ENCLAV (wersja EN; PL pod /pl/home).
+# Wcześniejsze: `/ /en/create 302` (do 2026-11-23), `/ https://packly.cc/ 302` (wyłączone 2026-11-19).
+/ /en/home 302
