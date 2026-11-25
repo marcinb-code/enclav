@@ -2,3 +2,9 @@
 # korzeń prowadzi do nowej centralnej strony głównej ENCLAV (wersja EN; PL pod /pl/home).
 # Wcześniejsze: `/ /en/create 302` (do 2026-11-23), `/ https://packly.cc/ 302` (wyłączone 2026-11-19).
 / /en/home 302
+
+# ENCLAV TOOLS HUB REV1.0 — stare adresy produktu HEIC→JPG → nowe, bez łańcuchów.
+/pl/heic-to-jpg /pl/tools/heic-to-jpg/ 301
+/pl/heic-to-jpg/ /pl/tools/heic-to-jpg/ 301
+/en/heic-to-jpg /en/tools/heic-to-jpg/ 301
+/en/heic-to-jpg/ /en/tools/heic-to-jpg/ 301

@@ -49,16 +49,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/packly"/>
   </url>
   <url>
-    <loc>https://www.enclav.cc/pl/heic-to-jpg/</loc>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/heic-to-jpg/"/>
+    <loc>https://www.enclav.cc/pl/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/tools/"/>
   </url>
   <url>
-    <loc>https://www.enclav.cc/en/heic-to-jpg/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/heic-to-jpg/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/heic-to-jpg/"/>
+    <loc>https://www.enclav.cc/en/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/tools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/tools/"/>
+  </url>
+  <url>
+    <loc>https://www.enclav.cc/pl/tools/heic-to-jpg/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/tools/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/tools/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/tools/heic-to-jpg/"/>
+  </url>
+  <url>
+    <loc>https://www.enclav.cc/en/tools/heic-to-jpg/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.enclav.cc/en/tools/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.enclav.cc/pl/tools/heic-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.enclav.cc/en/tools/heic-to-jpg/"/>
   </url>
   <url>
     <loc>https://www.enclav.cc/pl/home</loc>
